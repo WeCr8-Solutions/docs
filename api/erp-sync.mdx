@@ -1,0 +1,106 @@
+---
+title: "ERP Sync API"
+description: "Trigger ERP synchronization and monitor sync status via the API."
+---
+
+The ERP Sync endpoint imports work orders, operations, and work centers from your connected ERP system into Jobline.ai.
+
+<Note>
+  This endpoint requires an **Enterprise plan** and an **Admin or Owner** role in the target organization.
+</Note>
+
+## Endpoint
+
+```
+POST /functions/v1/erp-sync
+```
+
+## Request parameters
+
+<ParamField body="organization_id" type="string" required>
+  Your organization's UUID.
+</ParamField>
+
+<ParamField body="sync_type" type="string">
+  `full` — import all records from the ERP. `incremental` — import only records changed since the last successful sync. Defaults to `incremental`.
+</ParamField>
+
+<ParamField body="test_connection" type="boolean">
+  If `true`, tests the ERP connection and returns a status without importing any data. Use this to validate credentials after initial setup.
+</ParamField>
+
+<ParamField body="retry_error_ids" type="string[]">
+  Array of sync error UUIDs to retry. Marks the specified errors as resolved so they are re-attempted on the next sync run.
+</ParamField>
+
+## Examples
+
+<CodeGroup>
+```bash Incremental sync
+curl -X POST https://your-project.supabase.co/functions/v1/erp-sync \
+  -H "Authorization: Bearer YOUR_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "organization_id": "YOUR_ORG_ID",
+    "sync_type": "incremental"
+  }'
+```
+
+```bash Full sync
+curl -X POST https://your-project.supabase.co/functions/v1/erp-sync \
+  -H "Authorization: Bearer YOUR_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "organization_id": "YOUR_ORG_ID",
+    "sync_type": "full"
+  }'
+```
+
+```bash Test connection
+curl -X POST https://your-project.supabase.co/functions/v1/erp-sync \
+  -H "Authorization: Bearer YOUR_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "organization_id": "YOUR_ORG_ID",
+    "test_connection": true
+  }'
+```
+</CodeGroup>
+
+## Success response
+
+<ResponseField name="success" type="boolean">
+  `true` if the sync completed (fully or partially).
+</ResponseField>
+<ResponseField name="sync_log_id" type="string">
+  UUID of the sync log record for auditing.
+</ResponseField>
+<ResponseField name="records_fetched" type="integer">
+  Total records retrieved from the ERP API.
+</ResponseField>
+<ResponseField name="records_created" type="integer">
+  New work orders/operations created in Jobline.ai.
+</ResponseField>
+<ResponseField name="records_updated" type="integer">
+  Existing records updated in Jobline.ai.
+</ResponseField>
+<ResponseField name="errors_count" type="integer">
+  Number of records that failed to sync. Check the ERP error log in Settings > ERP to review and retry.
+</ResponseField>
+<ResponseField name="duration_ms" type="integer">
+  Total sync duration in milliseconds.
+</ResponseField>
+
+## Error responses
+
+| Status | Meaning |
+|--------|---------|
+| 401 | Invalid or missing authorization token |
+| 403 | Not an Admin/Owner, or organization is not on the Enterprise plan |
+| 404 | No ERP connection configured for this organization |
+| 429 | Sync cooldown active — wait at least 5 minutes between syncs |
+| 500 | ERP API error — check the `error` field in the response body |
+
+<Warning>
+  Avoid running full syncs more than once per hour. Use incremental syncs for routine scheduled updates. Full syncs can take several minutes for large datasets and count against your monthly sync limit.
+</Warning>

@@ -1,0 +1,95 @@
+---
+title: "Status Tracking"
+description: "Understand the status values used throughout Jobline.ai for jobs, operations, and machine conditions."
+---
+
+Jobline.ai uses consistent status values across the platform for job states, machine states, delay codes, priorities, and condition checks. Understanding these values helps you read dashboards, complete handoffs accurately, and interpret reports.
+
+## Job state
+
+The job state describes what's happening with a work order at a given station right now.
+
+| State | Description |
+|---|---|
+| **Part Running** | The machine is actively cutting or processing parts |
+| **Setup in Progress** | The operator is setting up the machine for this job |
+| **First Article in Process** | The first part is being inspected before production continues |
+| **Waiting on QA** | Production is stopped pending a quality decision |
+| **Waiting on Tooling** | A required tool is unavailable, worn, or being sourced |
+| **Waiting on Material** | Raw material hasn't been delivered to the machine |
+| **Machine Down / Issue** | The machine has an alarm, breakdown, or maintenance problem |
+| **Processing** | Work is in progress at a non-CNC station (welding, assembly, etc.) |
+| **Ready for Pickup** | The job is finished at this operation and waiting to move on |
+| **On Hold** | The job is paused for any reason not covered above |
+
+## Delay codes
+
+When a job is not running, a delay code records the reason. Delay codes feed into your downtime trend analysis.
+
+| Code | Meaning |
+|---|---|
+| **None** | No delay — job is running normally |
+| **Material** | Waiting for raw material or stock |
+| **Tooling** | Waiting for a tool, insert, or fixture |
+| **QA** | Waiting on quality approval or inspection result |
+| **Programming** | Waiting for a CNC program or revision |
+| **Maintenance** | Machine is down for repair or preventive maintenance |
+| **Setup** | Setup is taking longer than planned |
+| **Operator** | No operator available for this station |
+| **Inspection** | Waiting for an in-process inspection checkpoint |
+| **Shipping** | Waiting on inbound material or an outbound shipment |
+| **Unknown** | Reason is not yet identified |
+
+<Tip>
+  Use delay codes consistently — they feed into your downtime trend analysis and help identify recurring bottlenecks.
+</Tip>
+
+## Machine states
+
+Machine states reflect the real-time condition of a station. These update automatically when Jobline.ai is connected to your machine via the relay integration.
+
+| State | Description |
+|---|---|
+| **Running** | Machine is actively executing a program |
+| **Idle** | Machine is powered on but not cutting |
+| **Alarm** | Machine has a recoverable alarm condition |
+| **E-Stop** | Emergency stop is active — machine is locked out |
+| **Feed Hold** | Program is paused mid-cycle |
+| **Setup** | Operator has the machine in setup mode |
+| **Offline** | Machine is powered off or not communicating |
+| **Unknown** | Machine state cannot be determined |
+
+## Priority levels
+
+Priority is set on work orders and on issues in the handoff form.
+
+| Priority | When to use |
+|---|---|
+| **Low** | Standard job with comfortable lead time |
+| **Medium** | Normal production priority |
+| **High** | Approaching due date or customer escalation |
+| **Critical** | Late, on hold, or requires immediate action |
+
+## Condition status values
+
+Used in machine condition checks during shift handoff.
+
+| Value | Meaning |
+|---|---|
+| **OK** | Item is in good condition, no action needed |
+| **Low** | Level is low — plan to refill or replace soon |
+| **Check** | Item needs to be inspected before continuing |
+| **Clear** | Area is clean and clear (e.g., chip bin emptied) |
+| **Needs Cleaning** | Area requires cleaning before next shift runs |
+| **Issue** | Problem found — document in the handoff notes |
+
+## Tool status values
+
+Used in tooling notes during shift handoff.
+
+| Value | Meaning |
+|---|---|
+| **OK** | Tool is in good condition and ready to use |
+| **Replaced** | Tool was replaced this shift |
+| **Broken** | Tool broke — notify the incoming operator and supervisor |
+| **Monitor** | Tool is showing wear — watch it closely |

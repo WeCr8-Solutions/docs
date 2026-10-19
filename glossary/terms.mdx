@@ -1,0 +1,70 @@
+---
+title: "Glossary"
+description: "Definitions of key terms used throughout Jobline.ai and this documentation."
+---
+
+<AccordionGroup>
+  <Accordion title="Work Order">
+    A document that authorizes and tracks the production of a specific quantity of a part. It includes the part number, part name, customer, quantity ordered, due date, priority, and current status. Work orders flow through a sequence of operations (routing) from start to completion.
+  </Accordion>
+
+  <Accordion title="Operation">
+    A single step in a work order's production sequence. Examples: Op 10 — CAM Programming, Op 20 — CNC Mill, Op 30 — Deburr, Op 40 — Inspection. Each operation has a status (pending, in progress, on hold, completed) and may be assigned to a specific work center and team.
+  </Accordion>
+
+  <Accordion title="Routing">
+    The ordered sequence of operations that a work order follows from start to finish. Routing defines which work center performs each step and in what order. Example: Quoting → Engineering → CAM Programming → CNC Mill → Deburr → Final Inspection → Shipping.
+  </Accordion>
+
+  <Accordion title="Work Center">
+    A category of machine or process in your shop. Examples: CNC Mill, CNC Lathe, TIG Welding, Final Inspection, Shipping. Work centers group related stations together and determine what fields appear on the shift handoff form.
+  </Accordion>
+
+  <Accordion title="Station">
+    A specific physical machine or workbench in your shop. Examples: "Haas VF-2 #1", "CMM — Zeiss Contura", "TIG Bench 2". Each station belongs to a work center type and can be assigned to a team. Operators check in to a station at the start of their shift.
+  </Accordion>
+
+  <Accordion title="Shift Handoff">
+    The structured transfer of job responsibility from one operator to the next at shift change. A digital handoff record documents the current job state, machine condition, quality status, tooling notes, and any open issues. Both operators sign off on the record to confirm the transfer.
+  </Accordion>
+
+  <Accordion title="Blocker">
+    Any condition preventing a job from progressing. Blockers are reported by setting the job state to "Waiting on Material", "Waiting on Tooling", "Waiting on QA", or "Machine Down / Issue" and selecting a delay code. Blocked jobs appear in the supervisor's Attention Items panel.
+  </Accordion>
+
+  <Accordion title="Delay Code">
+    A classification of why a job is blocked or delayed. Options: None, Material, Tooling, QA, Programming, Maintenance, Setup, Operator, Inspection, Shipping, Unknown. Delay codes are used for downtime trend analysis.
+  </Accordion>
+
+  <Accordion title="Priority">
+    A flag on a work order indicating its urgency relative to other jobs. Jobline.ai supports four levels: **Low**, **Medium**, **High**, and **Critical**. Priority affects sort order in the queue and how the job is highlighted on the dashboard.
+  </Accordion>
+
+  <Accordion title="Owner">
+    The person responsible for resolving a specific issue or completing an action item. Every issue logged in a handoff or work order should have an assigned owner and due date. Unowned issues are tracked in the My Issues panel.
+  </Accordion>
+
+  <Accordion title="Due Date">
+    The date by which a work order must be completed and shipped. Due dates are visible in all queue views (Kanban, list, calendar). Jobs past their due date are flagged as overdue on the supervisor dashboard.
+  </Accordion>
+
+  <Accordion title="NCR (Non-Conformance Report)">
+    A record documenting a part or batch that does not meet specified requirements. NCRs are created when scrap, rework, or dimensional non-conformances are found. They require a QA disposition: rework, scrap, or use-as-is.
+  </Accordion>
+
+  <Accordion title="Routing Template">
+    A pre-defined sequence of operations that can be applied to new work orders automatically. Templates save time for jobs that follow a standard process flow in your shop.
+  </Accordion>
+
+  <Accordion title="Outside Processing">
+    An operation performed by an external vendor — for example, heat treat, plating, anodizing, or powder coating. Managed via the Outside Processing Manager, which tracks the job while it is off-site.
+  </Accordion>
+
+  <Accordion title="ERP (Enterprise Resource Planning)">
+    A business management software system such as JobBoss, Epicor, or Plex that manages sales orders, work orders, inventory, and scheduling. Jobline.ai can sync work orders and routing from your ERP automatically on the Enterprise plan.
+  </Accordion>
+
+  <Accordion title="First Article Inspection (FAI)">
+    An inspection of the very first part produced from a new setup to verify it meets all specifications before running the full quantity. In Jobline.ai, the job state "First Article in Process" signals that FAI is underway and the machine should not run production parts yet.
+  </Accordion>
+</AccordionGroup>

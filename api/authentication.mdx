@@ -1,0 +1,79 @@
+---
+title: "Authentication"
+description: "How to authenticate your API requests to Jobline.ai."
+---
+
+Jobline.ai uses **JWT Bearer tokens** for API authentication. All API requests must include a valid token in the `Authorization` header.
+
+## Getting a token
+
+### Web app users
+
+If you are working interactively, sign in at [app.jobline.ai](https://app.jobline.ai). The app manages token acquisition and refresh automatically.
+
+### Programmatic access
+
+For scripts, integrations, and automated pipelines, exchange your credentials for a JWT token using the Supabase Auth endpoint:
+
+```bash
+curl -X POST https://your-project.supabase.co/auth/v1/token?grant_type=password \
+  -H "apikey: YOUR_ANON_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"email": "operator@yourshop.com", "password": "your-password"}'
+```
+
+A successful response returns the token and related metadata:
+
+```json
+{
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "token_type": "bearer",
+  "expires_in": 3600,
+  "refresh_token": "v1:abc123...",
+  "user": {
+    "id": "user-uuid",
+    "email": "operator@yourshop.com"
+  }
+}
+```
+
+## Using the token
+
+Include the `access_token` in the `Authorization` header of every API request:
+
+```bash
+curl -X POST https://your-project.supabase.co/functions/v1/erp-sync \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"organization_id": "your-org-id", "sync_type": "incremental"}'
+```
+
+For Supabase REST API calls, you also need to pass your project's anonymous key in the `apikey` header:
+
+```bash
+curl https://your-project.supabase.co/rest/v1/queue_items?organization_id=eq.YOUR_ORG_ID \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -H "apikey: YOUR_ANON_KEY"
+```
+
+## Token expiry and refresh
+
+Tokens expire after the duration specified in `expires_in` (typically 3600 seconds). Use the `refresh_token` from the initial auth response to obtain a new access token without re-entering credentials:
+
+```bash
+curl -X POST https://your-project.supabase.co/auth/v1/token?grant_type=refresh_token \
+  -H "apikey: YOUR_ANON_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"refresh_token": "YOUR_REFRESH_TOKEN"}'
+```
+
+## Error responses
+
+| Status | Meaning |
+|--------|---------|
+| `401 Unauthorized` | The token is missing, malformed, or expired. |
+| `403 Forbidden` | The token is valid but the authenticated user does not have permission to perform the requested action. |
+
+<Note>
+For the ERP Connector and other enterprise endpoints, the authenticated user must have the **Admin** or **Owner** role in the target organization.
+</Note>

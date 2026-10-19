@@ -1,0 +1,43 @@
+---
+title: "User Roles Overview"
+description: "Jobline.ai uses role-based access to ensure each team member sees and can do what's relevant to their job."
+---
+
+Jobline.ai uses role-based access control at two levels: the **organization** level and the **team** level. Organization roles determine what a person can see and do across the entire org. Team roles control access within a specific team.
+
+## Organization roles
+
+| Role | Level | What they can do |
+|---|---|---|
+| **Owner** | Org | Full access — manage settings, billing, all users and all data |
+| **Admin** | Org | Manage org settings, users, teams, and work centers (cannot manage billing) |
+| **Supervisor** | Org | Production oversight — view all jobs, sign off handoffs, manage the teams they supervise |
+| **Operator** | Org | Create and update handoffs and job statuses for their assigned stations |
+| **Viewer** | Org | Read-only — can view dashboards, jobs, and handoffs but cannot make changes |
+
+## Team roles
+
+Within each team, members can hold one of three roles:
+
+- **Team Owner** — full control of the team, including adding and removing members and changing team settings
+- **Team Admin** — can manage team members and settings but cannot delete the team
+- **Team Member** — standard access to the team's stations and jobs
+
+Team roles layer on top of organization roles. For example, an operator who is a team admin for the CNC team can manage CNC team membership but still cannot access billing or org-level settings.
+
+## Role detail pages
+
+<CardGroup cols={2}>
+  <Card title="Admin and Owner" icon="shield" href="/roles/admin-and-owner">
+    Manage users, settings, work centers, and billing.
+  </Card>
+  <Card title="Supervisor" icon="eye" href="/roles/supervisor">
+    Production oversight, handoff sign-offs, and KPI dashboards.
+  </Card>
+  <Card title="Operator and Programmer" icon="wrench" href="/roles/operator-and-programmer">
+    Run jobs, create handoffs, and report blockers.
+  </Card>
+  <Card title="Quality and Shipping" icon="check-circle" href="/roles/quality-and-shipping">
+    Inspection holds, NCRs, and job closure.
+  </Card>
+</CardGroup>

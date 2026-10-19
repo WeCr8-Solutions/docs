@@ -1,0 +1,120 @@
+---
+title: "Handing Off to the Next Shift"
+description: "Step-by-step guide to completing a shift handoff before you leave."
+---
+
+A complete handoff means the incoming operator knows exactly what state the job is in, what the machine looks like, and what needs to happen next. This is your most important task before you walk out the door.
+
+## CNC operator handoff
+
+This walkthrough follows a day shift CNC operator handing off a job mid-run to the night shift.
+
+**Scenario:** Day shift has been running Part #ABC-1234 on Haas VF-2 #1. They've completed 23 of 47 parts, replaced Tool 3 (end mill was worn at part 18), and the machine is running smoothly.
+
+<Steps>
+  <Step title="Open the handoff form for your station">
+    From the dashboard, click **Start Handoff** on your station card. Or go to the work order and click **Start Handoff** from there.
+  </Step>
+  <Step title="Select the work order and operation">
+    Select **WO-2024-0187**, Part: **ABC-1234**, **Op 20 – CNC Mill**.
+  </Step>
+  <Step title="Set the job state">
+    Select **Part Running**. This tells the incoming operator the machine is actively cutting and the program is loaded.
+  </Step>
+  <Step title="Fill in machine readiness">
+    Check off each item that applies:
+    - Program Loaded: Yes
+    - Tools Installed: Yes
+    - Work Offsets Set: Yes
+    - Prove-Out Complete: Yes
+
+    If anything is not complete, mark it No or N/A and add a note.
+  </Step>
+  <Step title="Fill in machine condition">
+    Report the physical state of the machine:
+    - Coolant Level: OK
+    - Air Pressure: OK
+    - Chips: Clear
+    - Way Lube: OK
+    - Guards/Doors: OK
+    - Active Alarms: None
+
+    If anything is out of spec, mark it and describe the issue in the notes field.
+  </Step>
+  <Step title="Fill in quality status">
+    - Last good part: 2:47 PM
+    - Parts completed this shift: 23
+    - Scrap: 0
+    - Rework: 0
+    - Critical dims verified: Yes
+  </Step>
+  <Step title="Add a tooling note">
+    Click **Add Tooling Note**. Fill in:
+    - Tool number: T3
+    - Description: 1/2" End Mill
+    - Status: Replaced
+    - Comment: "Replaced at part 18, running good."
+  </Step>
+  <Step title="Add process notes">
+    In the handoff summary, write: "Program running well at F350, S8000. Next shift should be able to run remaining 24 parts without issues."
+  </Step>
+  <Step title="Submit the handoff">
+    Click **Submit Handoff** and sign off with your name. The record is saved.
+  </Step>
+  <Step title="Incoming operator acknowledges">
+    The night shift operator opens the handoff, reads through it, and clicks **I Acknowledge** to sign in.
+  </Step>
+</Steps>
+
+## Programmer-to-operator handoff
+
+<Tabs>
+  <Tab title="Programmer (outgoing)">
+    When a programmer finishes proving out a new program, they hand it off to the operator who will run production.
+
+    <Steps>
+      <Step title="Open the handoff form for the station">
+        Select the station where the job will run production.
+      </Step>
+      <Step title="Select the work order and operation">
+        Select the work order and the CAM Programming operation.
+      </Step>
+      <Step title="Set the job state to Ready for Pickup">
+        This signals to the operator that the program is done and the job is ready to run.
+      </Step>
+      <Step title="Fill in machine readiness">
+        Mark: Program Loaded: Yes, Tools Installed: Yes, Offsets Set: Yes, Prove-Out Complete: Yes.
+      </Step>
+      <Step title="Add a detailed process note">
+        Include:
+        - Program name and number
+        - File path or location on the machine control
+        - Full tooling list with tool numbers, descriptions, and offsets
+        - Any special instructions (feeds, speeds, fixturing, safety notes)
+      </Step>
+      <Step title="Submit the handoff">
+        Click **Submit Handoff** and sign off.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Operator (incoming)">
+    <Steps>
+      <Step title="Open the handoff record">
+        Find the handoff in your station queue or the work order.
+      </Step>
+      <Step title="Read the program and tooling details">
+        Confirm you have the program loaded, tools installed, and offsets set as described by the programmer.
+      </Step>
+      <Step title="Acknowledge the handoff">
+        Click **I Acknowledge** to confirm you've read the handoff and are ready to run.
+      </Step>
+      <Step title="Run the first article">
+        Follow the programmer's setup instructions. If anything doesn't match, contact the programmer before running parts.
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
+
+<Tip>
+  The **Issues and Follow-Ups** section is the most important part of the handoff. Always document open issues with an owner and due date — even if it's yourself.
+</Tip>

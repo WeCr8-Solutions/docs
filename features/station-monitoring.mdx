@@ -1,0 +1,80 @@
+---
+title: "Station Monitoring"
+description: "Track the real-time status of every machine and workstation in your shop from one place."
+---
+
+Station monitoring gives you a live view of every machine and workstation in your organization — who is running what, where jobs stand, and whether anything needs attention — all from one screen.
+
+<Note>
+  Station monitoring updates in real time. If a machine goes into alarm state, the dashboard highlights it immediately.
+</Note>
+
+## What each station card shows
+
+Each station appears as a card with the following information:
+
+| Field | Description |
+|---|---|
+| Station name | The label for this machine or workstation |
+| Work center type | CNC Mill, CNC Lathe, TIG Welding, Water Jet, etc. |
+| Team | The team that owns this station |
+| Current work order | The WO number and part number currently running |
+| Job state | The current state (Part Running, Setup, Waiting on QA, etc.) |
+| Operator | The operator currently checked in to this station |
+| Parts progress | Parts completed vs. parts required for the current job |
+| Condition | Any active alarms or condition flags |
+
+## Live machine data (CNC machines)
+
+When a CNC machine has the JobLine relay connected, the station card expands to show live data from the machine controller:
+
+- **Spindle RPM** — current spindle speed
+- **Spindle override** — spindle override percentage
+- **Feed override** — feed rate override percentage
+- **Active tool** — current tool number in the spindle
+- **Active program** — program name currently loaded and running
+- **Position** — current X, Y, Z axis position
+- **Alarm codes** — any active alarm codes from the controller
+
+Supported control types include Fanuc, Haas, Siemens, Mazak, Okuma, Mitsubishi, and Heidenhain.
+
+## Machine states
+
+| State | What it means |
+|---|---|
+| **Running** | Machine is actively cutting or processing |
+| **Idle** | Machine is powered on but not running a program |
+| **Alarm** | Machine has an active alarm condition |
+| **E-Stop** | Emergency stop is engaged |
+| **Feed Hold** | Program is paused in feed hold |
+| **Setup** | Machine is in setup mode |
+| **Offline** | Machine is powered off or relay is disconnected |
+
+## Alarm severity levels
+
+When a machine has an active alarm, it is flagged by severity:
+
+| Severity | What it means |
+|---|---|
+| **Warning** | A condition that needs attention but is not stopping production |
+| **Alarm** | An active alarm that has interrupted or may interrupt the job |
+| **Fault** | A critical fault condition — machine requires immediate attention |
+
+## Operator check-in and check-out
+
+At the start of each shift, operators check in to their assigned station. At the end of the shift, they check out.
+
+- **Check in** — associates your name with the station and starts tracking your session
+- **Check out** — closes your session and marks the station as unmanned
+
+This ensures the station card always shows who is responsible for a machine during a shift. It also links handoff records to the correct operator and station.
+
+## Shop floor display (TV mode)
+
+You can configure a wall-mounted screen to show all station statuses in a large-format view. This is useful for:
+
+- Supervisors monitoring the floor without walking around
+- Shift start meetings with the whole team
+- Highlighting machines in alarm so anyone on the floor can see it
+
+To enable TV mode, open station monitoring on a browser connected to your display and select **TV Mode** from the view options. The display refreshes automatically and does not require interaction.

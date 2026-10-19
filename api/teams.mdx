@@ -1,0 +1,58 @@
+---
+title: "Teams API"
+description: "Read team and membership information via the REST API."
+---
+
+Teams group users by department or function. Use the teams API to read team definitions and member lists.
+
+## Team object fields
+
+<ResponseField name="id" type="string">
+  UUID of the team.
+</ResponseField>
+<ResponseField name="organization_id" type="string">
+  Organization this team belongs to.
+</ResponseField>
+<ResponseField name="name" type="string">
+  Team display name (e.g. `Day Shift CNC`, `Quality Team`).
+</ResponseField>
+<ResponseField name="description" type="string">
+  Optional description of the team's purpose.
+</ResponseField>
+<ResponseField name="created_at" type="string">
+  ISO datetime the team was created.
+</ResponseField>
+
+## Team member fields
+
+<ResponseField name="id" type="string">
+  UUID of the membership record.
+</ResponseField>
+<ResponseField name="team_id" type="string">
+  UUID of the team.
+</ResponseField>
+<ResponseField name="user_id" type="string">
+  UUID of the user.
+</ResponseField>
+<ResponseField name="role" type="string">
+  Team role: `owner`, `admin`, or `member`.
+</ResponseField>
+<ResponseField name="joined_at" type="string">
+  ISO datetime when the user joined the team.
+</ResponseField>
+
+## List teams
+
+```bash
+curl "https://your-project.supabase.co/rest/v1/teams?organization_id=eq.YOUR_ORG_ID&order=name.asc" \
+  -H "Authorization: Bearer YOUR_TOKEN" \
+  -H "apikey: YOUR_ANON_KEY"
+```
+
+## List members of a team
+
+```bash
+curl "https://your-project.supabase.co/rest/v1/team_members?team_id=eq.TEAM_ID" \
+  -H "Authorization: Bearer YOUR_TOKEN" \
+  -H "apikey: YOUR_ANON_KEY"
+```

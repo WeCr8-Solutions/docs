@@ -1,0 +1,41 @@
+---
+title: "Closing a Job"
+description: "How to complete all operations and close out a work order when parts are shipped."
+---
+
+A work order is closed when every operation in its routing is marked complete and the final operation — typically Shipping — is done. Each step along the way is logged with the operator's name and a timestamp, giving you a full production history from quote to ship.
+
+## Full workflow: quoting to shipping
+
+<Steps>
+  <Step title="Quoting / Engineering">
+    The job starts at the Quoting work center. An engineer reviews the customer requirements, approves the job for production, and marks Op 10 (Quoting) as Completed. The job moves into the machining queue.
+  </Step>
+  <Step title="CAM Programming">
+    The programmer receives the job, writes the NC program, and proves it out on the machine. They create a handoff with the program name, tooling list, and work offsets, then mark Op 20 (CAM Programming) as Completed. The handoff appears in the CNC operator's queue.
+  </Step>
+  <Step title="Setup and machining">
+    The CNC operator picks up the programmer's handoff, loads the program and tooling, and runs the First Article. After FAI passes, they run the full quantity. They update the parts count throughout the shift and create a shift handoff at the end of each shift.
+  </Step>
+  <Step title="In-process inspection">
+    The QA inspector reviews parts mid-run. If the parts pass, they release the job to continue. If there's a concern, they create an NCR and the job goes on hold until disposition is determined.
+  </Step>
+  <Step title="Deburr / Finishing">
+    Parts move to the Deburr Station or Finishing work center. The operator there runs the parts and marks the operation as Completed when done.
+  </Step>
+  <Step title="Final inspection">
+    Quality performs a final inspection against the print and work order requirements. They create a final inspection record. If parts pass, the operation is marked Completed and the job moves to Shipping.
+  </Step>
+  <Step title="Shipping">
+    The Shipping team sees the job in their queue in "Ready for Pickup" state. They package and ship the parts, then mark the Shipping operation as Completed.
+  </Step>
+  <Step title="Close the work order">
+    When the last operation is marked Completed, the work order status automatically moves to **Completed** and the record is archived. Admins can also bulk-archive multiple completed work orders from the queue view.
+  </Step>
+</Steps>
+
+Every operation completion is logged with the operator's name and an exact timestamp. You can always open a closed work order and see the full history of who did what and when.
+
+<Tip>
+  Set up routing templates to match your shop's standard process flow. Then every new work order inherits the right operations automatically — no manual setup required for each job.
+</Tip>

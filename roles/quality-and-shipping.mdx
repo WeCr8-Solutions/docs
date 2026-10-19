@@ -1,0 +1,65 @@
+---
+title: "Quality and Shipping"
+description: "Quality inspectors and shipping staff have tailored views for inspection holds, NCRs, and final job closure."
+---
+
+Quality inspectors and shipping staff work at specific points in the job workflow — inspection holds and job closure. Jobline.ai surfaces the jobs that need your attention so you are not hunting through the queue manually.
+
+<Note>
+  Quality and Shipping users can be assigned to specific teams. Use separate teams (e.g., "Quality Team", "Shipping") to control what each group sees.
+</Note>
+
+## Quality Inspector
+
+Quality inspectors are responsible for managing inspection holds, reviewing non-conformances, and releasing jobs to continue.
+
+### What quality inspectors do in Jobline.ai
+
+- **Receive inspection holds** — jobs set to "Waiting on QA" appear in your queue for review
+- **Review quality notes and scrap/rework counts** from the shift handoff records to understand what the operator found
+- **Create NCRs** when a non-conformance is discovered during inspection
+- **Approve and disposition NCRs** — assign a disposition of rework, scrap, or use-as-is
+- **Release inspection holds** — once a job passes inspection, update the state to allow production to continue
+- **Review First Article Inspection records** — jobs set to "First Article in Process" require your approval before full-quantity production starts
+- **Add quality notes** that are visible to the operator, supervisor, and the full team
+
+### First Article Inspection
+
+When a programmer or setup operator sets a job to **First Article in Process**, the job is waiting for you. Review the part, check critical dimensions against the print, and either:
+
+- Release the job to continue (update state to Part Running or the appropriate next state)
+- Place it on hold with an NCR if it does not pass
+
+### NCR workflow
+
+See the [Quality and NCR Tracking](/features/quality-and-ncr) page for the full NCR process.
+
+---
+
+## Shipping and Final Processing
+
+Shipping staff manage the final stage of a job — from completed parts to delivery.
+
+### What shipping does in Jobline.ai
+
+- **See jobs in "Ready for Pickup" or "Processing" state** at shipping work centers — these are the jobs waiting for your action
+- **Update job state** to indicate parts have been packaged, labeled, and shipped
+- **Record shipping details** such as carrier, tracking number, or customer reference
+- **Close out the work order** once the job is complete and parts have left the building
+
+### Closing a work order
+
+When parts ship, update the job state to indicate the work is complete. This removes the job from active queues and moves it into completed history where it can still be reviewed and referenced.
+
+---
+
+## Role and permissions
+
+Both Quality Inspector and Shipping roles use the Operator permission level in Jobline.ai. You can:
+
+- Update job states for jobs at your work center
+- Create and manage NCRs (Quality)
+- Add notes visible to your team
+- View handoff records for jobs you are working on
+
+You cannot manage billing, invite users, or change org-level settings.

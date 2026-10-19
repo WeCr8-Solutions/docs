@@ -1,0 +1,106 @@
+---
+title: "Work Order Queue"
+description: "Manage your shop's active jobs in Kanban, list, or calendar views with priority management and real-time status."
+---
+
+The work order queue is the central hub for every active, pending, and completed job in your shop. From here, operators see what is running at their station, supervisors see the whole floor at a glance, and everyone can track job status without hunting down a paper traveler.
+
+## Three views
+
+Switch between views using the layout buttons at the top of the queue.
+
+<AccordionGroup>
+  <Accordion title="Kanban view">
+    Jobs are displayed as cards grouped by status column: **Part Running**, **Setup in Progress**, **Waiting on QA**, **Machine Down / Issue**, and so on.
+
+    Drag a card from one column to another to update its status instantly. The Kanban view is the fastest way to see where jobs are stuck and which stations are active.
+
+    <Tip>
+      Use the Kanban view during shift start meetings — the visual layout makes it easy to see where jobs are stuck.
+    </Tip>
+  </Accordion>
+
+  <Accordion title="List view">
+    Jobs are displayed in a sortable, filterable table. Each row shows work order number, part name, part number, station, status, priority, quantity, and due date.
+
+    Use the list view for bulk review — sorting by due date to find overdue jobs, or filtering by status to find everything that is on hold.
+  </Accordion>
+
+  <Accordion title="Calendar view">
+    Jobs are plotted on a calendar by their due date. Jobs that are overdue or approaching their due date stand out visually.
+
+    Use the calendar view during planning meetings to spot at-risk jobs before they become a problem.
+  </Accordion>
+</AccordionGroup>
+
+## Stats cards
+
+At the top of the queue, four cards give you a quick snapshot:
+
+- **Total jobs** — all jobs currently in the queue
+- **In progress** — jobs actively running or in setup
+- **On hold** — jobs blocked or waiting
+- **Completed** — jobs finished this period
+
+## Filtering the queue
+
+Use the filter bar to narrow the queue to what you care about:
+
+- Station or work center
+- Team
+- Status (Part Running, Waiting on QA, etc.)
+- Priority (Low, Medium, High, Critical)
+- Work order number
+- Part number
+
+Filters apply across all three views. Set a filter and then switch between Kanban, list, and calendar to see the same subset of jobs in each layout.
+
+## Creating a work order
+
+Click **+ New Work Order** (or the plus button) to create a job.
+
+**Required fields:**
+
+| Field | Description |
+|---|---|
+| Title / part name | What you are making |
+| Work order number | Your shop's WO or job number |
+| Quantity | How many pieces |
+| Due date | When the job needs to be complete |
+
+**Optional fields:**
+
+| Field | Description |
+|---|---|
+| Part number | Drawing or part number |
+| Priority | Low, Medium, High, or Critical |
+| Notes | Any instructions or context |
+| Routing | Operation sequence (can be added later) |
+
+## Bulk upload via Excel
+
+If you have a batch of jobs to enter, download the Excel template, fill it in, and upload the file. Jobline.ai creates all the work orders in one step.
+
+<Steps>
+  <Step title="Download the template">
+    In the queue, click **Bulk Upload** and then **Download Template**. The template includes all required and optional columns with instructions.
+  </Step>
+
+  <Step title="Fill in your work orders">
+    Add one row per work order. Required columns are highlighted. Save the file when done.
+  </Step>
+
+  <Step title="Upload the file">
+    Click **Upload** and select your completed file. The system validates each row and reports any errors before importing.
+  </Step>
+</Steps>
+
+## Work order actions
+
+From any work order card or row, you can:
+
+- **Edit** — update job details, quantity, due date, or priority
+- **View routing** — open the operation routing and see where the job is in its sequence
+- **View history** — see a full log of status changes, handoffs, and edits
+- **Create NCR** — open a non-conformance report linked to this job
+- **Add notes** — attach a note visible to anyone working on the job

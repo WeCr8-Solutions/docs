@@ -1,0 +1,40 @@
+---
+title: "Teams"
+description: "Teams group your staff by department or function, and control which jobs and stations each group sees."
+---
+
+A **team** is a group of users in your organization. Teams typically map to a department or shift — for example, "Day Shift CNC", "Night Shift CNC", "Quality Team", or "Programming". Every station and work order in Jobline.ai is owned by a team, which controls who sees what across the platform.
+
+## What teams control
+
+When a team owns a station, the members of that team are the ones checking in, completing handoffs, and updating job status at that station. When a work order operation is assigned to a team, it appears in that team's queue and is invisible to other teams until it routes their way.
+
+This keeps the interface clean: operators see only their stations and active jobs. Supervisors and owners have a cross-team view of the entire organization.
+
+## Team-based routing in action
+
+As a work order completes each operation, it moves from one team's queue to the next. For example:
+
+1. The **Programming** team programs the part and marks Op 10 complete.
+2. The work order routes to the **Day Shift CNC** team for Op 20.
+3. At shift change, the Day Shift operator completes a handoff and the job routes to **Night Shift CNC**.
+4. When machining is done, the work order routes to the **Quality** team for inspection.
+5. After inspection, it routes to **Shipping**.
+
+No phone calls, no walking across the shop — the system moves the job automatically.
+
+## Team roles
+
+Each team member has one of three roles:
+
+| Role | What they can do |
+|---|---|
+| **Owner** | Full control over the team — edit settings, manage members, assign stations |
+| **Admin** | Manage members and stations, complete handoffs, update work orders |
+| **Member** | Complete handoffs, update job status, view team queue |
+
+## Inviting operators with QR codes
+
+You don't need IT to add operators to a team. Admins generate a QR code invite link for each team. When a new operator scans the code — from their phone or a printed sheet posted in the break room — they're added to the team immediately. No email invite, no IT ticket.
+
+Each invite code is specific to a team, so operators land in the right place from day one.

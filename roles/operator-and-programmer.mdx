@@ -1,0 +1,64 @@
+---
+title: "Operator and Programmer"
+description: "Operators and programmers update job status, create shift handoffs, and keep the queue moving."
+---
+
+Operators and CNC programmers are the people closest to the work. Your role in Jobline.ai is to keep job status accurate, communicate what happened during your shift, and flag anything that needs attention before it becomes a problem.
+
+## Operator responsibilities
+
+As an operator, your typical workflow in Jobline.ai is:
+
+- **Check in to your station** at shift start to associate your name with the machine and start your session
+- **Update the job state** throughout your shift as the job progresses (Part Running → Waiting on QA → etc.)
+- **Record scrap and rework** as it happens — do not wait until end of shift
+- **Add quality notes** if anything about the parts looks off
+- **Create a shift handoff record** before you leave — fill in machine condition, quality status, tooling notes, and any open issues
+- **Report blockers with delay codes** any time the job is stuck so your supervisor knows why
+- **View your active work order** to confirm quantity, due date, and any special instructions
+
+You do not need to manage other users, configure settings, or approve NCRs. Your focus is on your station and your jobs.
+
+## CNC Programmer responsibilities
+
+CNC programmers hold the same Operator-level role but focus on programming, setup, and proving out new jobs. Your typical Jobline.ai tasks are:
+
+- **Review upcoming jobs and routing** in the queue to understand what is coming next
+- **Set the job state to "Setup in Progress"** when you start setting up a new job on the machine
+- **Set the state to "First Article in Process"** when setup is complete and a first piece has been run and sent to inspection
+- **Create a handoff when your work is done** — your handoff is the communication to the operator who will run the full quantity
+
+### What to include in a programmer handoff
+
+When handing off a proven setup to the production operator, include:
+
+- Program file name
+- Work offsets confirmed
+- Tool list — which tools are installed, which were measured, any that need monitoring
+- Fixture setup and clamping notes
+- Any special instructions or watch items
+
+**Example handoff note:**
+
+> Program `PART-1234-OP10.nc` loaded and proven out on Haas VF-2 #1. All 5 tools installed and measured. First article required before running full quantity of 47.
+
+<Tip>
+  Use the **Process Notes for Next Shift** field to leave specific instructions for the incoming operator — especially for complex setups.
+</Tip>
+
+## Machine readiness checklist
+
+When completing a setup handoff, the form includes a machine readiness checklist for CNC work:
+
+| Check | Options |
+|---|---|
+| Program loaded | Yes / No / N/A |
+| Program verified against setup sheet | Yes / No / N/A |
+| Tools installed | Yes / No / N/A |
+| Tools set and measured | Yes / No / N/A |
+| Tool list matches program | Yes / No / N/A |
+| Work offsets set | Yes / No / N/A |
+| Probing completed | Yes / No / N/A |
+| Prove-out completed | Yes / No / N/A |
+
+Filling this out completely protects the next operator — and protects you if something goes wrong later.

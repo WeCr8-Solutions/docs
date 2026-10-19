@@ -1,0 +1,59 @@
+---
+title: "Reporting a Blocker"
+description: "How to flag a blocked job so supervisors and other teams can act on it quickly."
+---
+
+A blocker is anything that stops a job from progressing: waiting on raw material, missing tooling, a QA hold, a machine in alarm, or a program that isn't ready. Log it immediately — your supervisor and the teams responsible need the notification to take action.
+
+## How to report a blocker
+
+<Steps>
+  <Step title="Open the work order in the queue">
+    Click the work order from your station dashboard or the queue view.
+  </Step>
+  <Step title="Click Update Status on the current operation">
+    Find the active operation in the routing and open the status update form.
+  </Step>
+  <Step title="Set the status to the appropriate Waiting on... state">
+    Choose the job state that describes what's blocking the job:
+
+    | Job state              | Use when...                                             |
+    | ---------------------- | ------------------------------------------------------- |
+    | Waiting on Material    | Raw stock or hardware hasn't arrived yet.               |
+    | Waiting on Tooling     | Required tools are missing, broken, or not ordered.     |
+    | Waiting on QA          | Inspection is required before the job can continue.     |
+    | Machine Down / Issue   | The machine is in alarm, broken, or needs maintenance.  |
+    | On Hold                | General hold — use a delay code to explain why.         |
+  </Step>
+  <Step title="Select the delay code that matches the reason">
+    Delay codes let your team filter and report on why jobs are delayed over time. Options include: Material, Tooling, QA, Programming, Maintenance, Setup, Operator, Inspection, Shipping, Unknown.
+  </Step>
+  <Step title="Add a note explaining the blocker">
+    Describe what's needed, who's responsible, and when you expect it to be resolved. Be specific — vague notes don't help.
+  </Step>
+  <Step title="Add an action item in Issues / Follow-Ups">
+    Click **Add Issue** and fill in:
+    - **Issue:** What is the problem?
+    - **Action Required:** What needs to happen to unblock the job?
+    - **Owner:** Who is responsible for resolving it?
+    - **Priority:** Low / Medium / High / Critical
+    - **Due By:** When do you need it resolved?
+  </Step>
+  <Step title="Save">
+    The job state updates immediately. The supervisor's dashboard shows this job in the **Attention Items** section.
+  </Step>
+</Steps>
+
+## Machine down example
+
+Here's how a real machine-down situation flows through Jobline.ai:
+
+1. Machine goes into alarm mid-run.
+2. Operator sets the job state to **Machine Down / Issue**, delay code: **Maintenance**.
+3. Note added: "Haas VF-2 #1 threw Alarm 100 (Servo Motor Overload) at 3:14 PM. Machine is off. Maintenance notified."
+4. Issue logged: Owner — maintenance lead, Due — today EOD.
+5. Night shift arrives and sees the machine status and the open issue in the handoff before touching anything.
+
+<Warning>
+  Don't walk away from a blocked job without logging it. Other teams — QA, purchasing, maintenance — need the notification to take action. An undocumented blocker means nothing gets resolved until someone notices on their own.
+</Warning>

@@ -1,0 +1,48 @@
+---
+title: "Notifications and Alerts"
+description: "Configure how and when Jobline.ai notifies you about jobs, machines, and team activity."
+---
+
+Jobline.ai has two separate notification systems:
+
+- **Notifications** (Settings > Notifications) — your personal preferences for which events send you an in-app notification or email
+- **Alerts** (Settings > Alerts) — org-level thresholds that trigger automatic alerts for supervisors and admins when production conditions exceed defined limits
+
+## Personal notification settings
+
+Go to **Settings > Notifications** to configure which events notify you.
+
+You can enable or disable notifications for each of the following events, independently for in-app and email:
+
+| Event | Description |
+|-------|-------------|
+| New handoff submitted for my team | A new shift handoff has been submitted at a station assigned to your team |
+| Job state changed (blocker, on-hold) | A work order's status has been set to a blocked or held state |
+| NCR assigned to me | A non-conformance report has been assigned to you for action |
+| Issue assigned to me | An issue from a handoff or work order has been assigned to you |
+| Machine alarm active | A station in your team has entered an alarm or e-stop state |
+
+Toggle each event on or off using the switches on the Notifications tab.
+
+<Tip>
+  Supervisors: enable **Machine alarm active** notifications so you know immediately when a machine needs attention, even if you're not watching the dashboard.
+</Tip>
+
+## Smart alert thresholds
+
+Smart alerts are org-level rules that notify supervisors and admins when production conditions go outside acceptable bounds. These are configured in **Settings > Alerts** and require Admin or Supervisor access to change.
+
+| Alert | What triggers it |
+|-------|-----------------|
+| Job overdue | A work order's due date has passed and it has not been completed |
+| Machine alarm | A station enters an alarm or e-stop state |
+| High scrap rate | Scrap rate on a work order exceeds the percentage threshold you set |
+| ERP sync failure | The ERP connector fails 3 consecutive sync attempts |
+
+For each threshold, enter the value that makes sense for your shop — for example, a scrap rate threshold of 5% for tight-tolerance aerospace work, or a longer overdue window for jobs with flexible due dates.
+
+## Email notifications
+
+Email notifications are controlled from **Settings > Notifications**. Toggle each event type on or off for email. Notifications go to the email address associated with your Jobline.ai account.
+
+If you are not receiving emails, check your spam or junk folder, and confirm your email address is correct in **Settings > General**.

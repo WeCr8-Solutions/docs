@@ -1,0 +1,58 @@
+---
+title: "Jobs and Work Orders"
+description: "How Jobline.ai represents manufacturing jobs and work orders, and how they flow through your shop."
+---
+
+In Jobline.ai, a **job** refers to the overall production job for a customer — a specific part, in a specific quantity, for a specific due date. A **work order** is the document that tracks that job as it moves through your shop: where it is, who's working on it, how many parts are done, and what still needs to happen.
+
+Work orders are the central unit of work in Jobline.ai. Everything — operations, shift handoffs, quality results, and routing — is attached to a work order.
+
+## Work order fields
+
+| Field | Description |
+|---|---|
+| **Work order number** | Your shop's internal WO number |
+| **Part number** | The part being manufactured |
+| **Part name** | A human-readable description of the part |
+| **Customer name** | The customer this job is for |
+| **Quantity ordered** | Total parts on the order |
+| **Quantity complete** | Parts that have passed through all operations |
+| **Quantity remaining** | Parts still in production |
+| **Due date** | When the job needs to ship |
+| **Priority** | Low, Medium, High, or Critical |
+| **Status** | Current state in the production lifecycle |
+
+## Priority levels
+
+| Priority | When to use |
+|---|---|
+| **Low** | Standard jobs with comfortable lead time |
+| **Medium** | Normal production priority |
+| **High** | Jobs approaching their due date or with customer escalation |
+| **Critical** | Jobs that are late, on hold, or require immediate attention |
+
+## Work order status lifecycle
+
+Work orders move through the following statuses as production progresses:
+
+**Pending** → **In Progress** → **On Hold** → **Completed**
+
+A job can move between In Progress and On Hold as issues arise and are resolved. Once all operations are complete and parts are shipped, the work order is marked Completed.
+
+## Viewing work orders
+
+Jobline.ai gives you three ways to view your work order queue:
+
+- **Kanban board** — drag-and-drop cards organized by status column; useful for a quick visual overview of what's moving and what's stuck
+- **List view** — a sortable, filterable table with full detail on every work order; useful for supervisors managing a large number of jobs
+- **Calendar view** — jobs laid out by due date; useful for spotting schedule conflicts and jobs that are running behind
+
+<Tip>
+  Use the calendar view to see which jobs are due this week and which are running behind.
+</Tip>
+
+## Bulk upload
+
+If you need to load a large number of work orders at once, you can import them from an Excel spreadsheet using the bulk upload template. Download the template from the Work Order Queue page, fill in your work orders, and upload the file. Jobline.ai will validate the data and create all the work orders in one step.
+
+For more on managing the queue and routing work orders through operations, see the [Work Order Queue](/platform/operations-and-routing) page.

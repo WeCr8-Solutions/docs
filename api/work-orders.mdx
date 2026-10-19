@@ -1,0 +1,126 @@
+---
+title: "Work Orders API"
+description: "Create, read, and update work orders in Jobline.ai via the REST API."
+---
+
+Work orders are the core unit of work in Jobline.ai. Each work order tracks a manufacturing job from initial receipt through completion.
+
+**Base URL:** `https://your-project.supabase.co/rest/v1/queue_items`
+
+<Note>
+All API calls are organization-scoped. You can only read and write work orders within your own organization — cross-organization access is not permitted.
+</Note>
+
+## Work order object
+
+<ResponseField name="id" type="string" required>
+  UUID of the work order.
+</ResponseField>
+
+<ResponseField name="organization_id" type="string" required>
+  UUID of the organization that owns this work order. All queries must be scoped to your organization.
+</ResponseField>
+
+<ResponseField name="title" type="string" required>
+  Display name for the work order, typically the part name or a short description (e.g., `"Part ABC-1234"`).
+</ResponseField>
+
+<ResponseField name="work_order" type="string" required>
+  Work order number as it appears in your shop (e.g., `"WO-2024-0187"`).
+</ResponseField>
+
+<ResponseField name="part_number" type="string">
+  Part number associated with the work order (e.g., `"ABC-1234"`).
+</ResponseField>
+
+<ResponseField name="quantity" type="integer" required>
+  Total quantity ordered.
+</ResponseField>
+
+<ResponseField name="qty_completed" type="integer" required>
+  Quantity completed so far.
+</ResponseField>
+
+<ResponseField name="due_date" type="string" required>
+  Due date in ISO 8601 date format (e.g., `"2024-08-15"`).
+</ResponseField>
+
+<ResponseField name="priority" type="string" required>
+  Priority level. One of: `"low"`, `"normal"`, `"high"`, `"urgent"`, `"critical"`.
+</ResponseField>
+
+<ResponseField name="status" type="string" required>
+  Current status of the work order. One of: `"pending"`, `"in_progress"`, `"on_hold"`, `"completed"`.
+</ResponseField>
+
+<ResponseField name="erp_job_id" type="string">
+  The job ID from your connected ERP system, if synced via the ERP Connector.
+</ResponseField>
+
+<ResponseField name="erp_source" type="string">
+  The ERP system this record was imported from (e.g., `"jobboss"`).
+</ResponseField>
+
+<ResponseField name="created_at" type="string" required>
+  ISO 8601 datetime when the record was created.
+</ResponseField>
+
+<ResponseField name="updated_at" type="string" required>
+  ISO 8601 datetime when the record was last updated.
+</ResponseField>
+
+---
+
+## List work orders
+
+Retrieve all work orders for your organization, ordered by due date:
+
+```bash
+curl "https://your-project.supabase.co/rest/v1/queue_items?organization_id=eq.YOUR_ORG_ID&order=due_date.asc" \
+  -H "Authorization: Bearer YOUR_TOKEN" \
+  -H "apikey: YOUR_ANON_KEY"
+```
+
+You can filter and sort using standard [Supabase PostgREST query parameters](https://supabase.com/docs/guides/api). For example, to retrieve only high-priority work orders that are currently in progress:
+
+```bash
+curl "https://your-project.supabase.co/rest/v1/queue_items?organization_id=eq.YOUR_ORG_ID&status=eq.in_progress&priority=eq.high&order=due_date.asc" \
+  -H "Authorization: Bearer YOUR_TOKEN" \
+  -H "apikey: YOUR_ANON_KEY"
+```
+
+---
+
+## Create a work order
+
+```bash
+curl -X POST https://your-project.supabase.co/rest/v1/queue_items \
+  -H "Authorization: Bearer YOUR_TOKEN" \
+  -H "apikey: YOUR_ANON_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "organization_id": "YOUR_ORG_ID",
+    "item_type": "work_order",
+    "title": "Part ABC-1234",
+    "work_order": "WO-2024-0187",
+    "part_number": "ABC-1234",
+    "quantity": 47,
+    "due_date": "2024-08-15",
+    "priority": "high",
+    "status": "pending"
+  }'
+```
+
+---
+
+## Update a work order
+
+Use `PATCH` with a filter to update specific fields on an existing work order. For example, to mark a work order as in progress:
+
+```bash
+curl -X PATCH "https://your-project.supabase.co/rest/v1/queue_items?id=eq.WORK_ORDER_ID" \
+  -H "Authorization: Bearer YOUR_TOKEN" \
+  -H "apikey: YOUR_ANON_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"status": "in_progress"}'
+```

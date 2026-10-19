@@ -1,0 +1,71 @@
+---
+title: "AI Planning Assistant"
+description: "Get AI-powered scheduling recommendations and priority suggestions for your work order queue."
+---
+
+The AI Planning Assistant analyzes your current work order queue and recommends a sequencing order to help you hit due dates, balance machine utilization, and surface jobs that need to move sooner.
+
+<Note>
+  The AI assistant works best when your work orders have accurate due dates, priorities, and routing defined.
+</Note>
+
+## What the AI Planning Assistant does
+
+The assistant looks at your entire active queue and suggests an optimized job sequence based on:
+
+- **Due dates** — jobs closer to their due date are weighted higher
+- **Priority levels** — Critical and High priority jobs are surfaced first
+- **Machine availability** — the assistant considers which stations are currently running and which have capacity
+- **Routing dependencies** — if a job has multiple operations, it accounts for which operations can run in parallel and which must follow sequence
+- **Current job states** — jobs that are blocked (waiting on material, QA, maintenance) are flagged separately
+
+The output is a prioritized job sequence with a brief rationale for each recommendation.
+
+## How to use it
+
+<Steps>
+  <Step title="Open the work order queue">
+    Navigate to the queue from the main navigation. Make sure your queue has up-to-date job states, priorities, and due dates — the recommendations are only as good as your data.
+  </Step>
+
+  <Step title="Click 'AI Planning Assistant'">
+    Click the **AI Planning Assistant** button in the queue toolbar. The assistant will analyze your current queue and generate recommendations.
+  </Step>
+
+  <Step title="Review the recommendations">
+    The assistant presents a suggested sequence with notes explaining its reasoning — for example, why a particular job was moved up or flagged as at-risk.
+  </Step>
+
+  <Step title="Apply or adjust">
+    Review the suggestions and decide which ones to act on. You can update job priorities, reassign jobs to stations, or adjust due dates based on the recommendations.
+
+    Nothing is changed automatically — you stay in control.
+  </Step>
+</Steps>
+
+## What the AI considers
+
+| Input | How it is used |
+|---|---|
+| Due date | Primary driver of urgency ranking |
+| Priority | Multiplier on urgency — Critical jobs jump the queue |
+| Machine availability | Avoids recommending jobs for stations that are currently at capacity or down |
+| Routing | Ensures operation dependencies are respected in the sequence |
+| Job state | Blocked jobs are flagged so you know not to schedule them until the blocker is resolved |
+
+## Limitations
+
+The AI Planning Assistant recommends — it does not decide. Final scheduling is always under your control.
+
+The assistant does not have visibility into:
+
+- Physical material location or availability beyond what is recorded in the system
+- Operator skill levels or certifications
+- Customer-specific delivery requirements not entered as priorities or notes
+- External factors like supplier lead times unless you have updated the delay codes
+
+Treat the recommendations as a starting point for your planning conversation, not a finished schedule.
+
+## Plan availability
+
+The AI Planning Assistant is an advanced feature available on qualifying plans. If you do not see the button in your queue toolbar, contact your administrator or check your subscription settings.

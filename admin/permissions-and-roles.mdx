@@ -1,0 +1,62 @@
+---
+title: "Permissions and Roles"
+description: "How organization roles and team roles control what each user can see and do."
+---
+
+Jobline.ai uses two layers of access control: your **organization role** and your **team role**. Organization roles determine what actions you can take across the entire shop. Team roles refine access within a specific team.
+
+## Organization roles
+
+Every member of your organization has one of five organization roles: Owner, Admin, Supervisor, Operator, or Viewer.
+
+| Action | Owner | Admin | Supervisor | Operator | Viewer |
+|--------|:-----:|:-----:|:----------:|:--------:|:------:|
+| Manage billing | ✓ | — | — | — | — |
+| Manage org settings | ✓ | ✓ | — | — | — |
+| Invite/remove members | ✓ | ✓ | — | — | — |
+| Create/manage teams | ✓ | ✓ | — | — | — |
+| Add/edit work centers | ✓ | ✓ | ✓ | — | — |
+| Create/update work orders | ✓ | ✓ | ✓ | ✓ | — |
+| Create shift handoffs | ✓ | ✓ | ✓ | ✓ | — |
+| Sign off handoffs (supervisor) | ✓ | ✓ | ✓ | — | — |
+| Approve NCRs | ✓ | ✓ | ✓ | — | — |
+| View dashboards | ✓ | ✓ | ✓ | ✓ | ✓ |
+| View handoff records | ✓ | ✓ | ✓ | ✓ | ✓ |
+
+<Note>
+  Viewers can see everything but cannot create or modify any records. This is useful for customers, auditors, or trainees who need read-only access.
+</Note>
+
+### Role descriptions
+
+- **Owner** — full access including billing. There is one Owner per organization. The Owner cannot be removed by Admins.
+- **Admin** — manages the organization, settings, members, and teams. Assign this role to IT staff or management responsible for configuring the system.
+- **Supervisor** — oversees production. Can sign off handoffs, approve NCRs, and add or edit work centers. Assign to shift leads and floor supervisors.
+- **Operator** — the primary shop floor role. Can create work orders, submit handoffs, and update job status. Assign to machinists, welders, inspectors, and other production staff.
+- **Viewer** — read-only access to all records and dashboards. Cannot create or modify any data.
+
+## Changing a user's role
+
+<Steps>
+  <Step title="Go to Teams > Members">
+    In the main navigation, select **Teams**, then open the **Members** list for your organization.
+  </Step>
+  <Step title="Find the member">
+    Locate the member whose role you want to change.
+  </Step>
+  <Step title="Click the role dropdown">
+    Click the role badge or dropdown next to their name.
+  </Step>
+  <Step title="Select the new role">
+    Choose the role from the list.
+  </Step>
+  <Step title="Confirm the change">
+    The change takes effect immediately. The member will see their new permissions on their next page load.
+  </Step>
+</Steps>
+
+Only Owners and Admins can change organization roles.
+
+## Settings tab visibility
+
+Tabs in **Settings** that require Admin or Supervisor access display a lock icon for Operators and Viewers. The tabs are visible but read-only, so members can see what settings exist without being able to change them.

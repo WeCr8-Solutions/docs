@@ -1,0 +1,117 @@
+---
+title: "Shift Handoff Tracking"
+description: "Structured digital handoff forms that capture machine state, job progress, quality notes, and open issues at every shift change."
+---
+
+Paper handoffs get lost. Verbal handoffs miss details. When an operator leaves at the end of a shift without a clear record, the incoming operator is guessing — and guessing costs time, scrap, and sometimes a crashed program.
+
+Shift handoff tracking gives every shift change a structured, timestamped record. The outgoing operator fills in what happened; the incoming operator signs off that they read it. Nothing falls through the cracks.
+
+## How it works
+
+<Steps>
+  <Step title="Open the handoff form for your station">
+    At the end of your shift, open the handoff form for your machine or workstation. You can access it from the station card on your dashboard or directly from the active work order.
+  </Step>
+
+  <Step title="Select the work order and operation">
+    Choose the work order and operation number you are handing off. If multiple jobs were running during your shift, create a separate handoff for each.
+  </Step>
+
+  <Step title="Set the current job state">
+    Select the state the job is in when you leave. Options include:
+
+    - **Part Running** — production is active and going well
+    - **Setup in Progress** — setup is underway but not complete
+    - **First Article in Process** — first piece is being inspected before running full quantity
+    - **Waiting on QA** — parts are on hold pending quality inspection
+    - **Waiting on Tooling** — job is blocked waiting for tooling
+    - **Waiting on Material** — raw material is not available
+    - **Machine Down / Issue** — machine is down or has an unresolved problem
+    - **On Hold** — job is paused for any other reason
+
+    If the job is blocked, select the appropriate delay code (Material, Tooling, QA, Maintenance, etc.) so the cause is tracked.
+  </Step>
+
+  <Step title="Fill in machine condition">
+    For CNC machines, record the condition you are leaving the machine in:
+
+    | Field | Options |
+    |---|---|
+    | Coolant level | OK / Low / N/A |
+    | Air pressure | OK / Low / N/A |
+    | Chip condition | Clear / Needs Cleaning / N/A |
+    | Way lube | OK / Check / N/A |
+    | Guards and doors | OK / Issue |
+    | Active alarms | Yes / No — add alarm notes if yes |
+
+    For welding stations, you will see gas level, wire level, tip condition, ground connection, and ventilation fields instead. For water jet stations, you will see water pressure, abrasive level, nozzle condition, and tank level.
+
+    The form automatically shows the right fields based on your work center type.
+  </Step>
+
+  <Step title="Record quality status">
+    Enter the quality data for your shift:
+
+    - Parts completed this shift
+    - Scrap count
+    - Rework count
+    - Last good part timestamp
+    - Critical dimensions verified (yes / no)
+    - Whether QA was notified
+    - Any quality notes for the incoming operator or inspector
+  </Step>
+
+  <Step title="Document tooling changes">
+    If any tools were changed, broken, or need monitoring during the shift, add a tooling note for each:
+
+    - Tool number and description
+    - Status: **OK**, **Replaced**, **Broken**, or **Monitor**
+    - A comment if the incoming operator needs to know something specific
+
+    Leave this section blank if no tooling changes occurred.
+  </Step>
+
+  <Step title="Log any open issues or follow-ups">
+    If anything needs to be addressed — a maintenance call, a suspect part, a missing fixture — add it as an issue item:
+
+    - **Issue description** — what the problem is
+    - **Action required** — what needs to happen
+    - **Owner** — who is responsible for resolving it
+    - **Priority** — Low, Medium, High, or Critical
+    - **Due by** — when it needs to be resolved
+
+    Items with no owner are easy to ignore. Always assign one.
+  </Step>
+
+  <Step title="Incoming operator signs off">
+    When the incoming operator arrives, they review the handoff and sign off to acknowledge they have read and accepted the shift status. The sign-off is timestamped automatically.
+  </Step>
+
+  <Step title="Optional supervisor sign-off">
+    Supervisors can add their sign-off to confirm they reviewed the handoff. This is optional but recommended for jobs with open issues, quality holds, or machine problems.
+  </Step>
+</Steps>
+
+## Form fields adapt to your work center
+
+The handoff form is not one-size-fits-all. The machine condition and equipment readiness sections change based on your work center type:
+
+| Work center | Condition fields shown |
+|---|---|
+| CNC Mill / CNC Lathe / Grinding | Coolant, air pressure, chips, way lube, guards, alarms |
+| TIG / MIG Welding | Gas level, wire level, tip condition, ground, ventilation |
+| Water Jet | Water pressure, abrasive level, nozzle condition, tank level |
+| Inspection, Assembly, and others | General equipment ready, safety checks, materials staged, work instructions, PPE |
+
+## Draft persistence
+
+The handoff form saves your progress automatically as you fill it in. If you get pulled away mid-handoff, you can come back and pick up where you left off. Your work is never lost.
+
+## Audit trail
+
+Every handoff record is permanent. Records show who created it, when each field was filled in, and every sign-off with timestamp. Nothing can be deleted or backdated.
+
+<Note>
+  Handoff records are searchable and timestamped. Supervisors can review any previous shift's handoff for any station.
+</Note>

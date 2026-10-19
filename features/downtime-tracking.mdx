@@ -1,0 +1,65 @@
+---
+title: "Downtime Tracking"
+description: "Record machine downtime events with reason codes to identify recurring problems and measure their impact."
+---
+
+Every minute a machine is down costs money. Downtime tracking captures machine-down events with reason codes and links them to specific work orders so you can see exactly how much time is being lost, to what, and on which machines.
+
+<Note>
+  Downtime data is aggregated per station. Review it weekly to find your biggest recurring problems.
+</Note>
+
+## What downtime tracking captures
+
+Each downtime event records:
+
+- **Machine / station** — which machine was down
+- **Reason code (delay code)** — the cause of the downtime
+- **Duration** — how long the machine was in the down state
+- **Associated work order** — which job was affected
+- **Notes** — any additional context from the operator or supervisor
+
+## How to report a machine-down event
+
+<Steps>
+  <Step title="Set the job state to 'Machine Down / Issue'">
+    When your machine goes down, update the job state on the work order or station card to **Machine Down / Issue**. This starts the downtime clock.
+  </Step>
+
+  <Step title="Select the delay code">
+    Choose the delay code that best describes why the machine is down:
+
+    - **Maintenance** — unplanned breakdown or waiting on maintenance technician
+    - **Tooling** — broken tool, missing tooling, or tooling needs replacement
+    - **Operator** — no qualified operator available to run the machine
+
+    Other delay codes (Material, QA, Programming, etc.) are also available if the stoppage is not a true machine-down event but the job still cannot proceed.
+  </Step>
+
+  <Step title="Add notes in the handoff">
+    When you fill out your shift handoff, include details about the machine-down event in the notes field: what happened, who was contacted, what was done, and whether it is resolved or still open.
+  </Step>
+
+  <Step title="Clear the state when resolved">
+    When the machine is back up and the job can continue, update the job state back to **Part Running**, **Setup in Progress**, or whichever state is appropriate. This closes the downtime event.
+  </Step>
+</Steps>
+
+## Trend analysis
+
+The downtime dashboard lets you review machine-down history across your shop:
+
+- **By machine** — see which stations have the most downtime events or the longest total downtime
+- **By reason code** — see whether your biggest problem is maintenance, tooling, or something else
+- **By time period** — compare this week to last week, or this month to last month
+
+Filter combinations let you ask specific questions — for example: "How much time has CNC Lathe #2 lost to maintenance issues in the last 30 days?"
+
+## How downtime data helps your shop
+
+Reviewing downtime trends regularly lets you:
+
+- **Identify machines with recurring problems** — if the same machine goes down for maintenance every two weeks, it is telling you something
+- **Justify maintenance investments** — data showing 40 hours of lost production per quarter makes the case for a scheduled rebuild or replacement
+- **Quantify your biggest time-wasters** — supervisors can use this data in team meetings to focus improvement efforts where they will have the most impact
+- **Build a case for tooling upgrades** — if tool breakage is causing repeated downtime on a specific part or operation, the data shows it clearly

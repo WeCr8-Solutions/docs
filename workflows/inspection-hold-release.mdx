@@ -1,0 +1,69 @@
+---
+title: "Inspection Hold and Release"
+description: "How to put a job on inspection hold and how QA releases it to continue production."
+---
+
+Inspection holds stop a job at a quality checkpoint until a qualified inspector reviews the parts and makes a disposition decision. Use holds for first article inspections (FAI), in-process checks, final inspection, or any time a quality concern comes up during production.
+
+## Placing an inspection hold
+
+<Steps>
+  <Step title="Open the work order">
+    Find it in the queue or on your station dashboard.
+  </Step>
+  <Step title="Update the operation status to Waiting on QA">
+    Click **Update Status** on the current operation and set it to **On Hold**. Then set the job state to **Waiting on QA** or **First Article in Process** if this is an FAI.
+  </Step>
+  <Step title="Add a quality note">
+    Describe what needs to be inspected, which dimensions to check, any concerns observed during the run, and the quantity of parts available for inspection.
+  </Step>
+  <Step title="Create an NCR if required">
+    If there's a known non-conformance, open the NCR form and fill in:
+    - Non-conformance description
+    - Affected quantity
+    - Part number
+    - Work order number
+  </Step>
+  <Step title="Assign to the Quality team">
+    Set the NCR owner or assignee to the Quality team or a specific inspector.
+  </Step>
+  <Step title="Save">
+    The job appears in the Quality team's queue. The supervisor dashboard shows the hold in Attention Items.
+  </Step>
+</Steps>
+
+## QA releasing the hold
+
+<Steps>
+  <Step title="Open the NCR or inspection record">
+    Go to the Quality team's queue and find the job on hold.
+  </Step>
+  <Step title="Review the non-conformance details">
+    Read the operator's notes, the affected quantity, and any measurements or photos provided.
+  </Step>
+  <Step title="Perform the inspection">
+    Measure parts, check against the print, and record your findings.
+  </Step>
+  <Step title="Set the disposition">
+    Choose the outcome for the non-conforming parts:
+
+    | Disposition | What happens                                                                   |
+    | ----------- | ------------------------------------------------------------------------------ |
+    | Rework      | Parts are sent back for rework. Rework quantity is tracked on the work order.  |
+    | Scrap       | Non-conforming parts are scrapped. Scrap count is logged.                      |
+    | Use-As-Is   | Deviation is approved. Parts continue to the next operation as-is.             |
+  </Step>
+  <Step title="Mark the NCR as resolved">
+    Add your inspection notes, findings, and disposition decision. Close the NCR.
+  </Step>
+  <Step title="Update the job state to resume production">
+    Set the operation back to **In Progress** if there are remaining parts to run, or **Completed** if the operation is done.
+  </Step>
+  <Step title="Production is notified">
+    The job's updated status is visible to the operator and supervisor immediately.
+  </Step>
+</Steps>
+
+<Note>
+  All NCR records and disposition decisions are logged with timestamps. You have a complete quality history for every work order, accessible any time.
+</Note>

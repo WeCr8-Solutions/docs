@@ -1,0 +1,155 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "maple",
+  "name": "Jobline.ai",
+  "colors": {
+    "primary": "#e55b6b",
+    "light": "#6767e3",
+    "dark": "#0c0c0c"
+  },
+  "favicon": "https://media.brand.dev/fb9ca0c6-e572-43f1-8205-108c2d7377e2.jpg",
+  "logo": {
+    "light": "https://media.brand.dev/4e1f9589-b1f7-49da-bfd7-71a7050c618b.svg",
+    "dark": "https://media.brand.dev/4e1f9589-b1f7-49da-bfd7-71a7050c618b.svg"
+  },
+  "navbar": {
+    "primary": {
+      "type": "button",
+      "label": "Get Started Free",
+      "href": "https://app.jobline.ai/auth"
+    }
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Introduction",
+            "pages": [
+              "introduction/what-is-jobline",
+              "introduction/who-its-for",
+              "introduction/key-benefits"
+            ]
+          },
+          {
+            "group": "Platform Overview",
+            "pages": [
+              "platform/jobs-and-work-orders",
+              "platform/operations-and-routing",
+              "platform/work-centers-and-stations",
+              "platform/teams",
+              "platform/shift-handoff",
+              "platform/status-tracking",
+              "platform/dashboard"
+            ]
+          },
+          {
+            "group": "Core Features",
+            "pages": [
+              "features/shift-handoff-tracking",
+              "features/work-order-queue",
+              "features/station-monitoring",
+              "features/quality-and-ncr",
+              "features/alerts-and-blockers",
+              "features/downtime-tracking",
+              "features/ai-planning-assistant"
+            ]
+          },
+          {
+            "group": "User Roles",
+            "pages": [
+              "roles/overview",
+              "roles/admin-and-owner",
+              "roles/supervisor",
+              "roles/operator-and-programmer",
+              "roles/quality-and-shipping"
+            ]
+          },
+          {
+            "group": "Getting Started",
+            "pages": [
+              "getting-started/create-organization",
+              "getting-started/setup-teams-and-stations",
+              "getting-started/invite-users",
+              "getting-started/first-shift-handoff"
+            ]
+          },
+          {
+            "group": "Daily Workflows",
+            "pages": [
+              "workflows/starting-a-shift",
+              "workflows/updating-operations",
+              "workflows/shift-handoff",
+              "workflows/reporting-blockers",
+              "workflows/inspection-hold-release",
+              "workflows/closing-a-job"
+            ]
+          },
+          {
+            "group": "Admin & Configuration",
+            "pages": [
+              "admin/organization-settings",
+              "admin/work-center-setup",
+              "admin/permissions-and-roles",
+              "admin/notifications-and-alerts"
+            ]
+          },
+          {
+            "group": "Integrations",
+            "pages": [
+              "integrations/erp-connector",
+              "integrations/bulk-upload",
+              "integrations/desktop-app",
+              "integrations/future-integrations"
+            ]
+          },
+          {
+            "group": "Security",
+            "pages": [
+              "security/access-control",
+              "security/audit-logging",
+              "security/best-practices"
+            ]
+          },
+          {
+            "group": "Troubleshooting",
+            "pages": [
+              "troubleshooting/common-issues",
+              "troubleshooting/faq"
+            ]
+          },
+          {
+            "group": "Glossary",
+            "pages": [
+              "glossary/terms"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API Reference",
+        "groups": [
+          {
+            "group": "API Overview",
+            "pages": [
+              "api/authentication",
+              "api/rate-limits"
+            ]
+          },
+          {
+            "group": "Endpoints",
+            "pages": [
+              "api/work-orders",
+              "api/operations",
+              "api/handoffs",
+              "api/stations",
+              "api/teams",
+              "api/erp-sync"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

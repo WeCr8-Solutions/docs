@@ -1,0 +1,57 @@
+---
+title: "Common Issues"
+description: "Solutions to the most common setup and operational issues in Jobline.ai."
+---
+
+<AccordionGroup>
+  <Accordion title="I can't see any jobs in the queue">
+    - Confirm you are in the right organization (check the org name in the top-left corner).
+    - Check that you are assigned to a team. If you have no team assignment, you may not see any queue items.
+    - Check if queue filters are active — look for filter badges in the toolbar and clear them.
+    - Ask your Admin to confirm your organization role is at least **Operator**.
+  </Accordion>
+
+  <Accordion title="The station I need doesn't appear">
+    - The station may not have been created yet. Ask your Admin to add it in **Settings > Work Centers**.
+    - The station may be assigned to a different team. Ask your Admin to check or update the team assignment.
+    - The station may be marked inactive. Ask your Admin to reactivate it in **Settings > Work Centers**.
+  </Accordion>
+
+  <Accordion title="I submitted a handoff but the incoming operator can't see it">
+    - Confirm the handoff status shows **Submitted** — a saved draft is not visible to other users.
+    - Make sure the incoming operator is viewing the correct station.
+    - Ask the incoming operator to refresh the page.
+    - Verify the correct work order and operation were selected on the handoff form.
+  </Accordion>
+
+  <Accordion title="I'm getting a permission error when updating a job">
+    - Your organization role may be **Viewer** — contact your Admin to change it to Operator.
+    - You may be trying to edit a job that belongs to a station or team you are not assigned to.
+    - Supervisor-only actions (like approving NCRs or signing off handoffs) are not available to Operator-level users.
+  </Accordion>
+
+  <Accordion title="An invited user didn't receive the email">
+    - Ask them to check their spam or junk folder.
+    - Verify the email address was entered correctly in **Teams > Members**.
+    - Try generating a QR code invite instead (**Teams > Invite Codes**) — it bypasses email entirely.
+  </Accordion>
+
+  <Accordion title="The ERP sync is failing">
+    - Go to **Settings > ERP** and click **Test Connection**. The error message will identify the problem.
+    - Common causes: expired OAuth credentials, changed ERP API URL, firewall blocking outbound connections to the ERP.
+    - After 3 consecutive failures, org Admins and Owners receive an automatic email alert.
+    - Check the sync error log for specific records that failed — you can retry individual errors.
+  </Accordion>
+
+  <Accordion title="Machine status isn't updating in real time">
+    - Live spindle data requires the JobLine relay agent to be installed and connected to your CNC control network. Contact [support@jobline.ai](mailto:support@jobline.ai) for relay setup.
+    - Without the relay, machine status is updated manually through shift handoff forms and job state changes.
+    - Check the relay connection indicator on the station card — a grey dot means the relay is offline.
+  </Accordion>
+
+  <Accordion title="A job is stuck and won't advance to the next operation">
+    - Check if the current operation has been marked **Completed**. It must be set to completed before the next operation becomes active.
+    - If the job is in **Waiting on QA** state, a QA team member must release the inspection hold.
+    - Check for an open NCR on the work order — open NCRs block the job until dispositioned.
+  </Accordion>
+</AccordionGroup>

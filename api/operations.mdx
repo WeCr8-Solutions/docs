@@ -1,0 +1,88 @@
+---
+title: "Operations API"
+description: "Read and update work order operations (routing steps) via the REST API."
+---
+
+Operations represent individual routing steps within a work order — for example, `"CNC Mill"`, `"Deburr"`, or `"Final Inspection"`. Each operation is linked to a parent work order and has its own status, station assignment, and timing data.
+
+**Base URL:** `https://your-project.supabase.co/rest/v1/work_order_routing`
+
+## Operation object
+
+<ResponseField name="id" type="string" required>
+  UUID of the operation record.
+</ResponseField>
+
+<ResponseField name="queue_item_id" type="string" required>
+  UUID of the parent work order.
+</ResponseField>
+
+<ResponseField name="organization_id" type="string" required>
+  UUID of the organization that owns this record.
+</ResponseField>
+
+<ResponseField name="step_number" type="integer" required>
+  Sequence number for this operation within the routing (e.g., `10`, `20`, `30`). Operations are displayed in ascending step order.
+</ResponseField>
+
+<ResponseField name="operation_name" type="string" required>
+  Display name for this operation step (e.g., `"CNC Mill"`, `"Deburr"`).
+</ResponseField>
+
+<ResponseField name="operation_type" type="string" required>
+  Classification of the operation type (e.g., `"machine"`, `"inspection"`).
+</ResponseField>
+
+<ResponseField name="station_id" type="string">
+  UUID of the assigned station, if this operation has been mapped to a specific workstation.
+</ResponseField>
+
+<ResponseField name="status" type="string" required>
+  Current status of the operation. One of: `"pending"`, `"in_progress"`, `"on_hold"`, `"completed"`.
+</ResponseField>
+
+<ResponseField name="erp_operation_id" type="string">
+  The operation ID from your connected ERP system, if synced via the ERP Connector.
+</ResponseField>
+
+<ResponseField name="setup_time_minutes" type="integer">
+  Estimated setup time in minutes, imported from the ERP system.
+</ResponseField>
+
+<ResponseField name="cycle_time_minutes" type="integer">
+  Estimated cycle time per part in minutes, imported from the ERP system.
+</ResponseField>
+
+<ResponseField name="created_at" type="string" required>
+  ISO 8601 datetime when the record was created.
+</ResponseField>
+
+<ResponseField name="updated_at" type="string" required>
+  ISO 8601 datetime when the record was last updated.
+</ResponseField>
+
+---
+
+## List operations for a work order
+
+Retrieve all routing steps for a specific work order, in sequence order:
+
+```bash
+curl "https://your-project.supabase.co/rest/v1/work_order_routing?queue_item_id=eq.WORK_ORDER_ID&order=step_number.asc" \
+  -H "Authorization: Bearer YOUR_TOKEN" \
+  -H "apikey: YOUR_ANON_KEY"
+```
+
+---
+
+## Update operation status
+
+Use `PATCH` to update the status of a specific operation:
+
+```bash
+curl -X PATCH "https://your-project.supabase.co/rest/v1/work_order_routing?id=eq.OPERATION_ID" \
+  -H "Authorization: Bearer YOUR_TOKEN" \
+  -H "apikey: YOUR_ANON_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"status": "completed"}'
+```

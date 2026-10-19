@@ -1,0 +1,79 @@
+---
+title: "Work Centers and Stations"
+description: "Work centers group your machines by type. Stations represent individual machines or workbenches on the floor."
+---
+
+Jobline.ai organizes your shop floor into two levels: **work centers** and **stations**.
+
+A **work center** is a category of machine or process. It defines the type of work being done — CNC Machining, Welding, Quality, Shipping, and so on. Work centers group your stations together and determine which handoff form fields appear when an operator completes a shift handoff.
+
+A **station** is a specific physical machine or workbench in your shop. Stations live inside a work center. For example, the CNC Machining work center might contain stations like "Haas VF-2 #1", "Haas VF-2 #2", and "Mazak QTN-200 #1". Each station is tracked independently — it has its own status, active work order, and handoff history.
+
+## Supported work center types
+
+<Tabs>
+  <Tab title="CNC Machining">
+    | Work center type | Typical use |
+    |---|---|
+    | CNC Mill | Vertical and horizontal milling centers |
+    | CNC Lathe | Turning centers and lathes |
+    | Grinding | Surface, cylindrical, and centerless grinding |
+  </Tab>
+  <Tab title="Cutting">
+    | Work center type | Typical use |
+    |---|---|
+    | Water Jet | Abrasive waterjet cutting |
+    | Band Saw | Metal band saw cutting |
+    | Punch Press | Sheet metal punching and blanking |
+  </Tab>
+  <Tab title="Forming">
+    | Work center type | Typical use |
+    |---|---|
+    | Press Brake | Sheet metal bending |
+  </Tab>
+  <Tab title="Welding">
+    | Work center type | Typical use |
+    |---|---|
+    | TIG Welding | Tungsten inert gas welding |
+    | MIG Welding | Metal inert gas welding |
+    | Electron Beam Welding | High-precision electron beam welding |
+  </Tab>
+  <Tab title="Finishing">
+    | Work center type | Typical use |
+    |---|---|
+    | Hardware Installation | Inserts, fasteners, and hardware |
+    | Deburr Station | Hand deburr and edge break |
+  </Tab>
+  <Tab title="Quality">
+    | Work center type | Typical use |
+    |---|---|
+    | Incoming Inspection | Receiving inspection of raw material and purchased parts |
+    | Outgoing Inspection | Final check before parts leave the shop |
+    | Final Inspection | Full dimensional and visual inspection |
+    | In-Process Inspection | Mid-route inspection checkpoints |
+    | First Article Inspection | FAI for new jobs or engineering changes |
+  </Tab>
+  <Tab title="Engineering">
+    | Work center type | Typical use |
+    |---|---|
+    | CAM Programming | CNC program generation and verification |
+    | Engineering Review | DFM, process planning, and ECO review |
+    | Quoting | Estimating and customer quote generation |
+  </Tab>
+  <Tab title="Logistics">
+    | Work center type | Typical use |
+    |---|---|
+    | Purchasing | Material and supply ordering |
+    | Receiving | Incoming material receiving and logging |
+    | Shipping | Packing, labeling, and shipment |
+    | Tool Crib | Tool management and distribution |
+  </Tab>
+</Tabs>
+
+## Machine profiles
+
+For CNC machines, you can attach a machine profile from the Jobline.ai marketplace. Machine profiles contain verified manufacturer specifications — control type, axis travel, spindle speed, tool capacity, and more — so you don't have to enter them by hand. Profiles are available for major CNC brands including Haas, Mazak, DMG Mori, and others.
+
+<Tip>
+  Give each station a clear, unique name like "Haas UMC-750 #1" so operators can identify it instantly on the shop floor display and in the handoff form.
+</Tip>

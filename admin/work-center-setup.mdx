@@ -1,0 +1,62 @@
+---
+title: "Work Center Setup"
+description: "Add and configure the work centers and stations that represent your shop floor."
+---
+
+Work centers and stations represent every machine, bench, and process area on your shop floor. Operators check in to stations at shift start, and shift handoffs are tied to specific stations — so an accurate station list is essential before you invite your team.
+
+Navigate to **Settings > Work Centers** to manage your stations.
+
+<Tip>
+  Add all your stations before inviting users. Operators will check in to stations at shift start, and they need the station list to be complete.
+</Tip>
+
+## Adding a station
+
+<Steps>
+  <Step title="Click Add Station">
+    In the Work Centers tab, click the **Add Station** button.
+  </Step>
+  <Step title="Enter the station name">
+    Use a name that matches what your team already calls the machine — for example, `Haas VF-4 #2` or `CMM - Zeiss Contura`. Clear, specific names prevent confusion at shift change.
+  </Step>
+  <Step title="Select the work center type">
+    Choose the type that best describes the machine or process from the dropdown. See the full list of supported types below.
+  </Step>
+  <Step title="Assign to a team">
+    Select which team operates this station. You can change the team assignment later.
+  </Step>
+  <Step title="Click Save">
+    The station is now active and visible to all members in your organization.
+  </Step>
+</Steps>
+
+## Editing a station
+
+Click the station name in the Work Centers list to open its settings. From there you can update the station name, work center type, or team assignment.
+
+## Deactivating a station
+
+Toggle the **Active** switch on a station to hide it from the active dashboard without deleting its history. Deactivated stations retain all past handoff records and work order data. Reactivate the station at any time by toggling the switch back on.
+
+## Machine profiles from Marketplace
+
+For CNC machines, you can purchase verified manufacturer profiles from the Marketplace. A machine profile pre-fills the manufacturer's specifications — travel distances, spindle speed, control type, tool capacity, and more — directly into the station's setup. This ensures the shift handoff form shows the correct readiness checklist for that specific machine model.
+
+To apply a profile, open the station settings and click **Browse Marketplace**, or go to **Settings > Marketplace** to browse all available profiles.
+
+## Supported work center types
+
+| Category | Work Center Types |
+|----------|-------------------|
+| CNC Machining | CNC Mill, CNC Lathe, Grinding |
+| Cutting & Forming | Water Jet, Band Saw, Press Brake, Punch Press |
+| Welding | TIG Welding, MIG Welding, Electron Beam Welding |
+| Finishing | Hardware Installation, Deburr Station |
+| Quality | Incoming Inspection, Outgoing Inspection, Final Inspection, In-Process Inspection, First Article Inspection, Calibration Lab |
+| Engineering | Quoting, Engineering Review, CAM Programming, Tooling Engineering |
+| Logistics | Purchasing, Receiving, Shipping, Tool Crib, Material Handling, Material Staging, Warehouse |
+| Production Support | Assembly, Rework, Kitting, Packaging, Labeling |
+| Maintenance & Safety | Maintenance Shop, Preventive Maintenance, Facilities, EHS |
+
+The work center type you select determines which fields appear on the shift handoff form. For example, a CNC Mill station shows spindle, program, and tooling fields, while a TIG Welding station shows gas and wire-level fields.

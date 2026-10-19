@@ -1,0 +1,80 @@
+---
+title: "Handoffs API"
+description: "Read shift handoff records via the REST API."
+---
+
+Shift handoff records are the core audit trail of Jobline.ai. The primary way to create and acknowledge handoffs is through the web interface. The API provides read access for reporting and integration purposes.
+
+<Note>
+  Submitted handoff records are immutable — they cannot be deleted or modified via the API.
+</Note>
+
+## Handoff record fields
+
+<ResponseField name="recordId" type="string">
+  Unique identifier for this handoff record.
+</ResponseField>
+<ResponseField name="date" type="string">
+  Date of the handoff (ISO date, e.g. `2024-08-15`).
+</ResponseField>
+<ResponseField name="shift" type="string">
+  Shift being handed off: `Day`, `Swing`, or `Night`.
+</ResponseField>
+<ResponseField name="workOrder" type="string">
+  Work order number (e.g. `WO-2024-0187`).
+</ResponseField>
+<ResponseField name="workCenterType" type="string">
+  Work center type of the station (e.g. `CNC Mill`, `TIG Welding`).
+</ResponseField>
+<ResponseField name="personnel.outgoingOperator" type="string">
+  Name of the operator leaving the shift.
+</ResponseField>
+<ResponseField name="personnel.incomingOperator" type="string">
+  Name of the operator taking over.
+</ResponseField>
+<ResponseField name="personnel.supervisor" type="string">
+  Supervisor name (optional).
+</ResponseField>
+<ResponseField name="jobState.primaryState" type="string">
+  Current job state: `Part Running`, `Setup in Progress`, `First Article in Process`, `Waiting on QA`, `Waiting on Tooling`, `Waiting on Material`, `Machine Down / Issue`, `Processing`, `Ready for Pickup`, `On Hold`.
+</ResponseField>
+<ResponseField name="jobState.delayCode" type="string">
+  Delay code if the job is blocked: `None`, `Material`, `Tooling`, `QA`, `Programming`, `Maintenance`, `Setup`, `Operator`, `Inspection`, `Shipping`, `Unknown`.
+</ResponseField>
+<ResponseField name="qualityStatus.partsCompletedThisShift" type="integer">
+  Number of good parts produced this shift.
+</ResponseField>
+<ResponseField name="qualityStatus.scrapCount" type="integer">
+  Number of parts scrapped this shift.
+</ResponseField>
+<ResponseField name="qualityStatus.reworkCount" type="integer">
+  Number of parts sent to rework this shift.
+</ResponseField>
+<ResponseField name="handoffSummary" type="string">
+  Free-text summary written by the outgoing operator.
+</ResponseField>
+<ResponseField name="signOff.outgoingTime" type="string">
+  ISO datetime when the outgoing operator signed off.
+</ResponseField>
+<ResponseField name="signOff.incomingTime" type="string">
+  ISO datetime when the incoming operator acknowledged.
+</ResponseField>
+<ResponseField name="createdAt" type="string">
+  ISO datetime the record was created.
+</ResponseField>
+
+## List handoff records
+
+```bash
+curl "https://your-project.supabase.co/rest/v1/shift_handoffs?organization_id=eq.YOUR_ORG_ID&order=created_at.desc&limit=50" \
+  -H "Authorization: Bearer YOUR_TOKEN" \
+  -H "apikey: YOUR_ANON_KEY"
+```
+
+## Filter by station and date
+
+```bash
+curl "https://your-project.supabase.co/rest/v1/shift_handoffs?organization_id=eq.YOUR_ORG_ID&machine_id=eq.STATION_ID&date=gte.2024-08-01" \
+  -H "Authorization: Bearer YOUR_TOKEN" \
+  -H "apikey: YOUR_ANON_KEY"
+```

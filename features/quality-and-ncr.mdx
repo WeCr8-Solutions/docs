@@ -1,0 +1,97 @@
+---
+title: "Quality and NCR Tracking"
+description: "Track non-conformances, scrap, rework, and inspection holds directly within your job workflow."
+---
+
+Quality issues that are not recorded get repeated. Jobline.ai embeds quality tracking directly into shift handoffs and work orders so that scrap, rework, and non-conformances are captured as they happen — not reconstructed at the end of the week.
+
+## Per-shift quality data
+
+Every shift handoff includes a quality status section. Operators record:
+
+- **Parts completed this shift** — how many good pieces came off the machine
+- **Scrap count** — pieces scrapped during the shift
+- **Rework count** — pieces that need to be reworked
+- **Last good part timestamp** — when the most recent conforming part was made
+- **Critical dimensions verified** — whether critical features were checked and confirmed
+- **QA notified** — whether the quality team was contacted about any issues
+- **Quality notes** — any details the inspector or next operator needs to know
+
+This data rolls up into the quality metrics dashboard over time.
+
+## NCR (Non-Conformance Report)
+
+An NCR documents a part, batch, or condition that does not meet requirements. Create one any time you find a defect, dimension out of tolerance, wrong material, or any other non-conforming condition.
+
+**When to create an NCR:**
+
+- A part fails inspection
+- Dimensions are out of print
+- Wrong material or revision received
+- Process was not followed per work instructions
+- Any condition where the part cannot proceed as-is
+
+**Who can approve an NCR:** Quality inspectors and supervisors with the appropriate role.
+
+### NCR workflow
+
+<Steps>
+  <Step title="Create the NCR">
+    From the work order or from the Quality tab, click **Create NCR**. Fill in the part number, work order, quantity affected, description of the non-conformance, and any supporting notes.
+  </Step>
+
+  <Step title="Assign to QA">
+    The NCR is assigned to a quality inspector for review. The job is held at its current operation until the NCR is dispositioned.
+  </Step>
+
+  <Step title="QA reviews">
+    The assigned inspector examines the parts, reviews the handoff records, and determines the appropriate disposition.
+  </Step>
+
+  <Step title="Disposition">
+    QA selects one of three dispositions:
+
+    - **Rework** — parts can be brought into conformance with additional work
+    - **Scrap** — parts are non-conforming and must be scrapped
+    - **Use-as-is** — parts are accepted as non-conforming with documented justification
+  </Step>
+
+  <Step title="Close the NCR">
+    Once the disposition is complete and parts are either reworked, scrapped, or accepted, the NCR is closed and the job can proceed.
+  </Step>
+</Steps>
+
+<Warning>
+  An open NCR will hold the job at the current operation until QA dispositions it. Make sure the right person is assigned.
+</Warning>
+
+## Inspection holds
+
+Any job can be placed in **Waiting on QA** state to hold it pending inspection. This prevents the next operation from starting before inspection is complete.
+
+**To place a job on hold:**
+Set the job state to **Waiting on QA** from the station card, work order, or handoff form.
+
+**To release the hold:**
+A quality inspector reviews the job, confirms the parts meet requirements, and updates the job state to allow it to continue. If an NCR was open, it must be dispositioned before the hold is released.
+
+## First Article Inspection (FAI)
+
+When a job requires a first-piece inspection before running full quantity, set the job state to **First Article in Process**. This signals to QA and the operator that:
+
+- The setup is complete
+- A single part has been run
+- The part must be inspected and approved before the remaining quantity is produced
+
+The job stays in First Article in Process until QA releases it.
+
+## Quality Metrics Dashboard
+
+The quality metrics dashboard aggregates quality data across your organization:
+
+- Scrap rates by part number, work center, or time period
+- NCR counts broken down by part, station, or work center
+- Rework trends over time
+- Open NCRs and their current status
+
+Use this dashboard weekly to find which parts or stations are generating the most quality issues.

@@ -1,0 +1,48 @@
+---
+title: "Operations and Routing"
+description: "How operations define the step-by-step routing of a work order through your shop floor."
+---
+
+An **operation** is a single step in a work order's manufacturing process. Each operation represents a specific type of work performed at a specific work center — for example, Op 10 at the CNC Mill, Op 20 at Deburr, Op 30 at Inspection.
+
+**Routing** is the ordered sequence of all operations a work order must complete from start to finish. When you set up routing for a work order, you're defining the path that job takes through your shop.
+
+## Example routing
+
+Here's what a typical routing looks like for a precision machined part:
+
+| Op # | Operation | Work Center |
+|---|---|---|
+| 10 | CAM Programming | CAM Programming |
+| 20 | CNC Mill | CNC Machining |
+| 30 | Deburr | Deburr Station |
+| 40 | In-Process Inspection | In-Process Inspection |
+| 50 | Final Inspection | Final Inspection |
+| 60 | Shipping | Shipping |
+
+As each operation is completed, the work order advances to the next step. The team responsible for the next operation sees the job appear in their queue automatically.
+
+## Operation status values
+
+Each operation has a status that reflects where it is in the process:
+
+| Status | Meaning |
+|---|---|
+| **Pending** | The operation hasn't started yet — waiting for the previous operation to complete |
+| **In Progress** | The operation is actively being worked on at the station |
+| **On Hold** | Work has stopped — waiting on material, tooling, QA, or another blocker |
+| **Completed** | The operation is done and the work order has advanced to the next step |
+
+## Setting up routing
+
+Use the **Work Order Routing Editor** to define and modify the operation sequence for any work order. You can add, remove, and reorder operations, and assign each one to a work center and team.
+
+If your shop uses routing templates for common part families, you can apply a template to a new work order and then make adjustments as needed.
+
+## Outside processing
+
+When an operation goes to an external vendor — plating, heat treat, anodizing, painting — use the **Outside Processing Manager** to track that step. You can log the vendor, ship date, expected return date, and status, so the job doesn't fall through the cracks while it's off-site.
+
+<Note>
+  When connected to an ERP like JobBoss, routing is imported automatically and kept in sync. You won't need to enter operations by hand for jobs that originate in your ERP.
+</Note>

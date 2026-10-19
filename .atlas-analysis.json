@@ -1,0 +1,177 @@
+{
+  "projectType": "saas",
+  "projectName": "Jobline.ai",
+  "projectDescription": "Jobline.ai is a real-time manufacturing operations platform for CNC machine shops and production teams, replacing clipboards and paper-based processes with digital shift handoffs, work order tracking, station monitoring, and team coordination.",
+  "theme": "maple",
+  "primaryColor": "#e55b6b",
+  "lightColor": "#6767e3",
+  "darkColor": "#0c0c0c",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Introduction",
+            "pages": [
+              "introduction/what-is-jobline",
+              "introduction/who-its-for",
+              "introduction/key-benefits"
+            ]
+          },
+          {
+            "group": "Platform Overview",
+            "pages": [
+              "platform/jobs-and-work-orders",
+              "platform/operations-and-routing",
+              "platform/work-centers-and-stations",
+              "platform/teams",
+              "platform/shift-handoff",
+              "platform/status-tracking",
+              "platform/dashboard"
+            ]
+          },
+          {
+            "group": "Core Features",
+            "pages": [
+              "features/shift-handoff-tracking",
+              "features/work-order-queue",
+              "features/station-monitoring",
+              "features/quality-and-ncr",
+              "features/alerts-and-blockers",
+              "features/downtime-tracking",
+              "features/ai-planning-assistant"
+            ]
+          },
+          {
+            "group": "User Roles",
+            "pages": [
+              "roles/overview",
+              "roles/admin-and-owner",
+              "roles/supervisor",
+              "roles/operator-and-programmer",
+              "roles/quality-and-shipping"
+            ]
+          },
+          {
+            "group": "Getting Started",
+            "pages": [
+              "getting-started/create-organization",
+              "getting-started/setup-teams-and-stations",
+              "getting-started/invite-users",
+              "getting-started/first-shift-handoff"
+            ]
+          },
+          {
+            "group": "Daily Workflows",
+            "pages": [
+              "workflows/starting-a-shift",
+              "workflows/updating-operations",
+              "workflows/shift-handoff",
+              "workflows/reporting-blockers",
+              "workflows/inspection-hold-release",
+              "workflows/closing-a-job"
+            ]
+          },
+          {
+            "group": "Admin & Configuration",
+            "pages": [
+              "admin/organization-settings",
+              "admin/work-center-setup",
+              "admin/permissions-and-roles",
+              "admin/notifications-and-alerts"
+            ]
+          },
+          {
+            "group": "Integrations",
+            "pages": [
+              "integrations/erp-connector",
+              "integrations/bulk-upload",
+              "integrations/desktop-app",
+              "integrations/future-integrations"
+            ]
+          },
+          {
+            "group": "Security",
+            "pages": [
+              "security/access-control",
+              "security/audit-logging",
+              "security/best-practices"
+            ]
+          },
+          {
+            "group": "Troubleshooting",
+            "pages": [
+              "troubleshooting/common-issues",
+              "troubleshooting/faq"
+            ]
+          },
+          {
+            "group": "Glossary",
+            "pages": [
+              "glossary/terms"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API Reference",
+        "groups": [
+          {
+            "group": "API Overview",
+            "pages": [
+              "api/authentication",
+              "api/rate-limits"
+            ]
+          },
+          {
+            "group": "Endpoints",
+            "pages": [
+              "api/work-orders",
+              "api/operations",
+              "api/handoffs",
+              "api/stations",
+              "api/teams",
+              "api/erp-sync"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "Digital shift handoff forms with CNC/machine-type-specific fields",
+    "Work order queue with Kanban, list, and calendar views",
+    "Real-time station and machine status monitoring",
+    "Multi-team organizational structure with role-based access",
+    "Non-conformance report (NCR) and quality tracking",
+    "ERP connector with bidirectional sync (JobBoss, Epicor, Plex)",
+    "Downtime tracking with reason codes and trend analysis",
+    "Bulk Excel upload for work orders",
+    "AI planning assistant for scheduling and prioritization",
+    "Shop floor TV display (supervisor and operator modes)",
+    "Operator check-in/check-out and session tracking",
+    "Smart alerts and configurable notification thresholds",
+    "Work order routing editor and outside processing manager",
+    "QR code-based team invite and onboarding",
+    "Windows desktop app (installer and portable)"
+  ],
+  "publicApiSurface": [
+    "POST /functions/v1/erp-sync — trigger ERP sync (full or incremental)",
+    "POST /functions/v1/create-checkout — start Stripe subscription checkout",
+    "POST /functions/v1/customer-portal — open subscription management portal",
+    "POST /functions/v1/check-subscription — verify subscription entitlements",
+    "POST /functions/v1/update-seats — manage seat counts on Enterprise plan",
+    "POST /functions/v1/process-notifications — dispatch queued notifications",
+    "POST /functions/v1/send-email — send transactional emails",
+    "POST /functions/v1/ai-planning-assistant — get AI scheduling recommendations",
+    "POST /functions/v1/report-issue — submit user-reported issues",
+    "POST /functions/v1/verify-station-context-payment — validate station context purchases",
+    "Supabase Realtime subscriptions — live station status, work order updates, shift handoffs",
+    "ShiftHandoffRecord — structured shift handoff data model",
+    "StationInfo — station status and current job data model",
+    "AppMachineStatus — live CNC machine metrics data model",
+    "ERPWorkOrder — work order data model for ERP integration",
+    "ERPOperation — operation/routing data model for ERP integration"
+  ]
+}

@@ -1,0 +1,47 @@
+---
+title: "Audit Logging"
+description: "Jobline.ai logs user activity and data changes for accountability and traceability."
+---
+
+Jobline.ai maintains an audit trail of key user actions and data changes. This gives supervisors and admins the ability to verify what happened, when, and by whom.
+
+## What is logged
+
+| Event | Details recorded |
+|-------|-----------------|
+| Login / logout | User, timestamp, IP address |
+| Shift handoff created | Author, station, work order, timestamp |
+| Shift handoff acknowledged | Incoming operator, timestamp |
+| Supervisor sign-off | Supervisor name, timestamp |
+| Work order status change | Who changed it, from/to status, timestamp |
+| Operation status change | Who changed it, operation, timestamp |
+| NCR created | Author, work order, part number, timestamp |
+| NCR dispositioned | QA user, disposition type, timestamp |
+| User role change | Admin who made the change, affected user, new role |
+| ERP sync | Sync type, records fetched/created/updated, errors, duration |
+| Admin actions | User management, settings changes |
+
+## Viewing activity logs
+
+Admins and Owners can view the activity log from the **Admin** panel. Each entry shows:
+- Timestamp
+- User name
+- Action performed
+- Affected record or setting
+- IP address (for login events)
+
+## Handoff audit trail
+
+Every shift handoff record includes an immutable history:
+- Who created the handoff and when
+- Who acknowledged it as incoming operator
+- Whether a supervisor signed off
+- Any edits made before submission (with timestamps)
+
+<Note>
+  Submitted shift handoff records cannot be deleted. This ensures a tamper-evident shift history that supervisors and quality auditors can rely on.
+</Note>
+
+## Log retention
+
+Audit logs are retained for the lifetime of your active subscription. After cancellation, logs remain accessible for 30 days during the data export window.

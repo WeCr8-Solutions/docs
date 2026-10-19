@@ -1,0 +1,40 @@
+---
+title: "Rate Limits"
+description: "API rate limits and best practices for Jobline.ai integrations."
+---
+
+Jobline.ai enforces rate limits at two levels: a **sync cooldown** specific to the ERP Sync endpoint, and **general API limits** that apply to all calls.
+
+## ERP sync cooldown
+
+The ERP Sync endpoint enforces a minimum **5-minute cooldown** between sync runs. If you call the endpoint before the cooldown has elapsed, the API returns a `429 Too Many Requests` response with a `wait_minutes` field indicating how long to wait:
+
+```json
+{
+  "error": "Please wait 3 minutes before syncing again.",
+  "wait_minutes": 3
+}
+```
+
+This cooldown applies per organization. It is checked against the last completed, partial, or running sync log for that organization.
+
+## General rate limits
+
+Jobline.ai enforces general rate limits across all API calls. Do not exceed a few hundred requests per minute from a single client. Exceeding this threshold may result in temporary throttling with a `429` response.
+
+## Error codes
+
+| Status | Meaning |
+|--------|---------|
+| `429 Too Many Requests` | The sync cooldown is still active, or you have exceeded the general request rate. Check the `wait_minutes` field in the response body for how long to wait before retrying. |
+
+## Best practices
+
+- **Use incremental sync** instead of full sync whenever possible. Incremental mode only fetches records modified since the last successful sync, significantly reducing load on both Jobline.ai and your ERP system.
+- **Cache JWT tokens** and refresh them only when they expire. Authenticating on every request wastes quota and adds unnecessary latency.
+- **Implement exponential backoff** when you receive a `429` response. Wait for the duration indicated in `wait_minutes`, then retry. If retries continue to fail, increase the wait time between attempts.
+- **Use the Excel upload feature** for bulk data entry instead of individual API calls. The bulk upload path is optimized for large imports and does not count against Edge Function rate limits.
+
+<Tip>
+The ERP sync function returns `duration_ms` in its response. Monitor this value — if syncs are taking longer over time, consider reducing the number of work orders synced by using incremental mode.
+</Tip>

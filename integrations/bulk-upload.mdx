@@ -1,0 +1,43 @@
+---
+title: "Bulk Upload"
+description: "Import multiple work orders at once using an Excel spreadsheet template."
+---
+
+Use bulk upload to import a large batch of work orders in one step — useful when starting fresh, migrating from a spreadsheet system, or loading a week's worth of jobs.
+
+<Steps>
+  <Step title="Open the Queue">
+    Go to **Queue** in the main navigation.
+  </Step>
+  <Step title="Download the template">
+    Click the upload icon in the toolbar and select **Download Template**. Open the Excel file.
+  </Step>
+  <Step title="Fill in the spreadsheet">
+    Complete one row per work order. Required columns are marked with an asterisk in the template header.
+
+    | Column | Required | Example |
+    |--------|----------|---------|
+    | Work Order Number | Yes | WO-2024-0187 |
+    | Part Name | Yes | Bracket Assembly |
+    | Part Number | No | ABC-1234 |
+    | Quantity | Yes | 47 |
+    | Due Date | Yes | 2024-08-15 |
+    | Priority | No | High |
+    | Customer Name | No | Acme Aerospace |
+    | Notes | No | Rush order |
+  </Step>
+  <Step title="Upload the file">
+    Click **Upload File**, select your saved spreadsheet, and click **Open**.
+  </Step>
+  <Step title="Review and import">
+    Jobline.ai shows a preview of all rows. Rows with errors are highlighted in red — fix them in the spreadsheet and re-upload. Click **Import** to create all valid work orders.
+  </Step>
+</Steps>
+
+<Tip>
+  Save your template with your shop's default values pre-filled (like Priority = Medium) to speed up future uploads.
+</Tip>
+
+<Note>
+  Duplicate work order numbers are flagged during import. You can choose to skip duplicates or overwrite the existing record.
+</Note>

@@ -1,0 +1,64 @@
+---
+title: "Stations API"
+description: "Read station configuration and live status via the REST API."
+---
+
+Stations represent physical machines and workbenches in your shop. Use the stations API to read station configuration and current status for integration or reporting purposes.
+
+## Station object fields
+
+<ResponseField name="id" type="string">
+  UUID of the station.
+</ResponseField>
+<ResponseField name="organization_id" type="string">
+  Organization this station belongs to.
+</ResponseField>
+<ResponseField name="name" type="string">
+  Human-readable station name (e.g. `Haas VF-2 #1`).
+</ResponseField>
+<ResponseField name="station_id" type="string">
+  Short identifier for the station.
+</ResponseField>
+<ResponseField name="work_center" type="string">
+  Work center name this station belongs to.
+</ResponseField>
+<ResponseField name="work_center_type" type="string">
+  Work center type (e.g. `CNC Mill`, `TIG Welding`, `Final Inspection`).
+</ResponseField>
+<ResponseField name="team_id" type="string">
+  UUID of the team assigned to this station (optional).
+</ResponseField>
+<ResponseField name="is_active" type="boolean">
+  Whether this station is currently active and visible on the dashboard.
+</ResponseField>
+<ResponseField name="current_status.current_job_state" type="string">
+  Current job state at this station.
+</ResponseField>
+<ResponseField name="current_status.current_job_work_order" type="string">
+  Active work order number.
+</ResponseField>
+<ResponseField name="current_status.current_operator_name" type="string">
+  Name of the operator currently checked in.
+</ResponseField>
+<ResponseField name="current_status.parts_complete" type="integer">
+  Parts completed at this station for the current job.
+</ResponseField>
+<ResponseField name="current_status.parts_required" type="integer">
+  Total parts required for the current job.
+</ResponseField>
+
+## List active stations
+
+```bash
+curl "https://your-project.supabase.co/rest/v1/stations?organization_id=eq.YOUR_ORG_ID&is_active=eq.true&order=name.asc" \
+  -H "Authorization: Bearer YOUR_TOKEN" \
+  -H "apikey: YOUR_ANON_KEY"
+```
+
+## Filter stations by team
+
+```bash
+curl "https://your-project.supabase.co/rest/v1/stations?organization_id=eq.YOUR_ORG_ID&team_id=eq.TEAM_ID" \
+  -H "Authorization: Bearer YOUR_TOKEN" \
+  -H "apikey: YOUR_ANON_KEY"
+```

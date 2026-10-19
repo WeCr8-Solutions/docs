@@ -1,0 +1,109 @@
+---
+title: "Alerts and Blockers"
+description: "Flag blockers, set priorities, and receive smart alerts when jobs need attention."
+---
+
+A blocked job that nobody knows about is the most expensive kind. Jobline.ai gives you structured ways to flag blockers, assign owners, and get notified before a delay turns into a missed delivery.
+
+## What is a blocker?
+
+A blocker is any condition that prevents a job from moving forward. Common examples:
+
+- Waiting on raw material that has not arrived
+- Missing or broken tooling
+- Parts on hold pending QA inspection
+- Machine is down waiting on maintenance
+- Program has not been written or proven out yet
+- Operator is not available
+
+Blockers are recorded by setting the job state to the appropriate waiting or down state, and selecting a delay code that describes the cause.
+
+## Delay codes
+
+When you put a job on hold or into a down state, select the delay code that best matches the root cause:
+
+| Code | Use when |
+|---|---|
+| **None** | No delay — job is running normally |
+| **Material** | Waiting on raw material or stock |
+| **Tooling** | Missing, broken, or unordered tooling |
+| **QA** | Waiting on inspection or NCR disposition |
+| **Programming** | CNC program not ready or needs revision |
+| **Maintenance** | Machine down waiting on maintenance |
+| **Setup** | Setup is taking longer than expected |
+| **Operator** | No qualified operator available |
+| **Inspection** | Waiting on inspection (first article or in-process) |
+| **Shipping** | Waiting on inbound or outbound shipping |
+| **Unknown** | Cause has not been identified yet |
+
+## How to report a blocker
+
+<Steps>
+  <Step title="Set the job state">
+    From the work order, station card, or handoff form, change the job state to the appropriate status:
+
+    - **Waiting on Material**
+    - **Waiting on Tooling**
+    - **Waiting on QA**
+    - **Machine Down / Issue**
+    - **On Hold**
+  </Step>
+
+  <Step title="Select the delay code">
+    Choose the delay code that describes why the job is blocked. This is required — it is how downtime and blocker trends are tracked.
+  </Step>
+
+  <Step title="Add notes">
+    Add a description of the issue in the handoff notes or the work order notes field. Be specific: what is missing, who has been contacted, and what the expected resolution is.
+  </Step>
+</Steps>
+
+## Issue and follow-up items
+
+Beyond blocking a job, you can create individual issue items — either from a handoff form or directly on a work order — to track specific action items that need to be resolved.
+
+Each issue item includes:
+
+| Field | Description |
+|---|---|
+| Issue description | What the problem or task is |
+| Action required | What needs to happen to resolve it |
+| Owner | Who is responsible for taking action |
+| Priority | Low, Medium, High, or Critical |
+| Due by | When the item must be resolved |
+
+<Tip>
+  Always assign an owner and due date to every issue or follow-up item. Unowned action items get lost.
+</Tip>
+
+## Priority levels
+
+Priority affects how jobs are sorted in the queue and how they appear on dashboards:
+
+| Priority | When to use |
+|---|---|
+| **Low** | Nice to address, but not time-sensitive |
+| **Medium** | Should be resolved soon, won't cause an immediate problem |
+| **High** | Needs attention today — risk of missing schedule |
+| **Critical** | Needs attention right now — actively blocking delivery or safety |
+
+High and Critical jobs float to the top of the queue and are highlighted on the supervisor dashboard.
+
+## Smart alerts
+
+Smart alerts notify you automatically when conditions exceed configured thresholds:
+
+- A job is past its due date
+- A machine enters alarm state
+- Scrap rate exceeds a configured threshold for a station or part
+
+Thresholds are configured by your supervisor or administrator in settings.
+
+## Notification channels
+
+When an alert fires, you receive a notification through:
+
+- **In-app** — a notification badge and alert panel within Jobline.ai
+- **Email** — an email to your registered address with the alert details
+
+Notification preferences can be adjusted in your account settings.

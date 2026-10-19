@@ -1,0 +1,93 @@
+---
+title: "ERP Connector"
+description: "Sync work orders and routing from your ERP system into Jobline.ai automatically."
+---
+
+The ERP Connector pulls work orders, operations/routing, and work center definitions from your ERP system into Jobline.ai in real time. Once connected, your shop floor team always sees current job status without manual re-entry.
+
+<Warning>
+  The ERP Connector requires an Enterprise plan. If you are on a lower plan, you will see a "Requires Enterprise" message when you access this setting.
+</Warning>
+
+## Supported ERP systems
+
+- JobBoss Cloud
+- Epicor
+- Plex
+
+## What gets synced
+
+### Work orders
+
+Each synced work order brings in:
+
+| Field | Description |
+|-------|-------------|
+| Work order number | The WO identifier from your ERP |
+| Part number | The part number being produced |
+| Part name | Description of the part |
+| Customer | Customer name associated with the order |
+| Quantity ordered | Total quantity to produce |
+| Quantity complete | Quantity finished so far |
+| Quantity remaining | Quantity still to run |
+| Due date | Required completion date |
+| Priority | Urgency level |
+| Status | Current job status |
+| Sales order reference | The sales order this work order is tied to |
+
+### Operations / routing
+
+Each operation record includes the sequence number, work center, operation status, cycle time, and setup time.
+
+### Work centers
+
+ERP work center IDs are mapped to your Jobline.ai stations during setup. After mapping, operations automatically route to the correct station.
+
+## Setting up the ERP Connector
+
+<Steps>
+  <Step title="Open Settings > ERP">
+    Go to **Settings > ERP**. An Enterprise plan is required to access this tab.
+  </Step>
+  <Step title="Click Configure ERP Connection">
+    Click the **Configure ERP Connection** button to open the connection setup form.
+  </Step>
+  <Step title="Enter your ERP's API base URL">
+    Enter the base URL of your ERP's API endpoint. Get this from your ERP administrator or the ERP vendor's documentation.
+  </Step>
+  <Step title="Enter your OAuth credentials">
+    Enter the **Client ID** and **Client Secret** provided by your ERP admin. These credentials authorize Jobline.ai to read data from your ERP. Do not share these credentials with other systems.
+  </Step>
+  <Step title="Test the connection">
+    Click **Test Connection** to verify that Jobline.ai can reach your ERP and authenticate successfully. The result message will describe any errors if the test fails.
+  </Step>
+  <Step title="Set up field mappings">
+    If your ERP uses non-standard field names, configure the field mapping table to tell Jobline.ai which ERP field corresponds to each Jobline.ai field (for example, mapping your ERP's `job_id` to Jobline.ai's work order number).
+  </Step>
+  <Step title="Map work centers to stations">
+    Match each ERP work center ID to the corresponding Jobline.ai station. This determines which station a routing step appears on.
+  </Step>
+  <Step title="Map status values">
+    Map your ERP's status codes to Jobline.ai statuses (for example, mapping ERP status `REL` to Jobline.ai status `In Progress`).
+  </Step>
+  <Step title="Run a full sync">
+    Click **Run Full Sync** to import all work orders and routing from your ERP. This may take a few minutes depending on the size of your work order backlog.
+  </Step>
+</Steps>
+
+## Sync types
+
+| Type | Description |
+|------|-------------|
+| Full sync | Imports all work orders and routing from the ERP |
+| Incremental sync | Imports only records that changed since the last successful sync |
+
+Incremental syncs run automatically on a schedule. There is a 5-minute minimum cooldown between syncs to prevent overloading the ERP API.
+
+## Sync limits
+
+Your Enterprise plan includes a set number of syncs per month. Contact [support@jobline.ai](mailto:support@jobline.ai) if you need a higher limit.
+
+## Error handling
+
+If a record fails to sync, it appears in the **ERP Sync Error Log** within Settings > ERP. You can review the error details and retry individual failed records without running a full sync again. If 3 consecutive syncs fail entirely, all org Admins receive an automatic email alert.

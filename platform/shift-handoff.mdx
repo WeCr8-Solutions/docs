@@ -1,0 +1,115 @@
+---
+title: "Shift Handoff"
+description: "The digital shift handoff form captures everything the incoming operator needs to continue work without interruption."
+---
+
+A **shift handoff** is the structured transfer of a machine and active job from one operator to the next at the end of a shift. The outgoing operator documents where things stand — machine condition, job progress, quality status, open issues — before they leave. The incoming operator reviews that record and knows exactly what to expect when they walk up to the machine.
+
+Jobline.ai supports three shifts: **Day**, **Swing**, and **Night**.
+
+<Note>
+  A typical digital handoff takes under 5 minutes. Paper-based handoffs average 20–30 minutes and routinely lose critical details.
+</Note>
+
+## What a handoff record contains
+
+### Work order and part info
+
+The handoff is tied to a specific work order and operation:
+
+- Part number and revision
+- Operation number being run
+- Work center and station
+
+### Personnel
+
+- Outgoing operator name
+- Incoming operator name
+- Supervisor (optional)
+
+### Job state
+
+The primary status of the job at handoff time:
+
+| State | Meaning |
+|---|---|
+| **Part Running** | Machine is actively cutting parts |
+| **Setup in Progress** | Machine is being set up for the job |
+| **First Article in Process** | Waiting for QA to approve the first article |
+| **Waiting on QA** | Job is stopped pending a QA decision |
+| **Waiting on Tooling** | A tool needs to be sourced or replaced |
+| **Waiting on Material** | Raw material hasn't arrived at the machine |
+| **Machine Down / Issue** | Machine has an alarm, breakage, or maintenance issue |
+| **Processing** | Non-CNC operation in progress (welding, assembly, etc.) |
+| **Ready for Pickup** | Job is complete at this operation, waiting to move to the next |
+| **On Hold** | Job is paused for any reason |
+
+### Machine readiness (CNC stations)
+
+For CNC mills and lathes, the handoff form includes a machine readiness checklist:
+
+- Program loaded
+- Program verified against setup sheet
+- Tools installed and measured
+- Tool list matches program
+- Work offsets set
+- Probing completed
+- Prove-out completed
+
+### Machine condition (CNC stations)
+
+| Item | Options |
+|---|---|
+| Coolant level | OK / Low / N/A |
+| Air pressure | OK / Low / N/A |
+| Chip condition | Clear / Needs Cleaning / N/A |
+| Way lube | OK / Check / N/A |
+| Guards / doors | OK / Issue |
+| Active alarms | Yes / No (with alarm notes) |
+
+For welding stations, the condition section covers gas level, wire level, tip condition, ground connection, and ventilation. For water jet stations, it covers water pressure, abrasive level, nozzle condition, and tank level.
+
+### Quality status
+
+- Last good part timestamp
+- Parts completed this shift
+- Scrap count
+- Rework count
+- Critical dimensions verified
+- QA notified
+
+### Materials status
+
+- Raw material available at the machine
+- Next material lot ready
+- Any material issues to note
+
+### Tooling notes
+
+For each tool requiring attention:
+
+- Tool number and description
+- Status: OK / Replaced / Broken / Monitor
+- Comment
+
+### Issues and follow-ups
+
+Any open items that need action after the shift:
+
+- Issue description
+- Action required
+- Owner (who's responsible)
+- Priority
+- Due by
+
+### Sign-off
+
+The handoff is closed out with:
+
+- Outgoing operator name and timestamp
+- Incoming operator name and timestamp
+- Supervisor name and timestamp (if required)
+
+## Form fields adapt by work center type
+
+The handoff form is not one-size-fits-all. When you complete a handoff at a CNC mill or lathe, you see the full machine readiness checklist and CNC-specific condition fields. At a welding station, you see welding-specific fields. At a generic station (assembly, deburr, etc.), you see a simplified equipment readiness checklist. The form always matches the type of work being done.

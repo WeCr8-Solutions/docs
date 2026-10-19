@@ -1,0 +1,74 @@
+---
+title: "First Shift Handoff"
+description: "Run your first digital shift handoff and see how information flows between shifts."
+---
+
+A shift handoff is the core workflow in Jobline.ai. The outgoing operator fills out what happened during their shift; the incoming operator reads it and acknowledges before starting work. This page walks you through your first handoff end to end.
+
+**Prerequisites:** at least one station set up, at least one work order in the queue, and at least two user accounts (one for the outgoing operator, one for the incoming operator).
+
+## Create your first work order
+
+<Steps>
+  <Step title="Go to the Queue">
+    Click **Queue** in the main navigation.
+  </Step>
+  <Step title="Click Add Work Order">
+    Look for the **+** button in the top-right corner of the queue.
+  </Step>
+  <Step title="Fill in the work order details">
+    Enter the work order number, part name, quantity, and due date. These fields appear on every handoff form and help operators understand what they're running.
+  </Step>
+  <Step title="Set the priority">
+    Choose Low, Medium, High, or Critical. Priority affects how the job sorts in the queue and whether it triggers alerts on the supervisor dashboard.
+  </Step>
+  <Step title="Save">
+    The work order appears in your queue and is ready to be assigned to a station.
+  </Step>
+</Steps>
+
+## Run the shift handoff
+
+<Steps>
+  <Step title="Open the handoff form for your station">
+    As the outgoing operator, go to the dashboard and find your station card. Click **Start Handoff**, or open the work order from the queue and start the handoff from there.
+  </Step>
+  <Step title="Select the work order and operation">
+    Pick the work order you're handing off and the specific operation you worked on this shift.
+  </Step>
+  <Step title="Set the current job state">
+    Choose the state that reflects where the job stands right now — for example, "Part Running", "Ready for Pickup", or "Waiting on QA". Job state tells the incoming operator exactly what they're walking into.
+  </Step>
+  <Step title="Fill in machine condition">
+    Report the coolant level, air pressure, chip condition, way lube, and whether there are any active alarms. If anything is not OK, add a note.
+  </Step>
+  <Step title="Enter quality status">
+    Record the number of parts completed this shift, any scrap or rework, and whether critical dimensions were verified. Enter the timestamp of the last good part.
+  </Step>
+  <Step title="Add notes and open issues">
+    Use the notes field to tell the incoming operator anything they need to know. If there's an open issue that needs follow-up, add it in the Issues & Follow-Ups section with an owner and due date.
+  </Step>
+  <Step title="Submit the handoff">
+    Click **Submit Handoff**. The outgoing operator signs off with their name and the current time.
+  </Step>
+  <Step title="Incoming operator acknowledges">
+    The incoming operator opens the handoff record, reads through it, and clicks **I Acknowledge** to sign in. The handoff is now complete and saved.
+  </Step>
+</Steps>
+
+The handoff record is permanently saved and searchable. Anyone on your team can look up past handoffs for any station or work order.
+
+<Tip>
+  Your first handoff doesn't have to be perfect. The goal is to get your team into the habit — details improve over time.
+</Tip>
+
+## What's next
+
+<CardGroup cols={2}>
+  <Card title="Daily Workflows" icon="calendar" href="/workflows/starting-a-shift">
+    Learn what operators and supervisors do at the start and end of every shift.
+  </Card>
+  <Card title="Platform Overview" icon="layout-dashboard" href="/platform/jobs-and-work-orders">
+    Understand jobs, work orders, and how they flow through your shop.
+  </Card>
+</CardGroup>

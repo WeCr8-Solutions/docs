@@ -1,0 +1,52 @@
+---
+title: "Access Control"
+description: "How Jobline.ai ensures each user can only see and modify their own organization's data."
+---
+
+## Organization-level isolation
+
+Every piece of data in Jobline.ai — work orders, handoff records, stations, teams, NCRs — is scoped to your organization. Users in other organizations cannot see or access your data, even if they use the same platform.
+
+This isolation is enforced at the database level on every table. It cannot be bypassed by manipulating API requests.
+
+## Authentication
+
+Users authenticate with an email address and password. Sessions are managed via secure JWT tokens that expire after a period of inactivity, requiring re-login.
+
+<Note>
+  Multi-factor authentication (MFA) enforcement is planned for a future release. In the meantime, encourage your team to use strong, unique passwords.
+</Note>
+
+## Role-based access
+
+What each user can do is determined by their organization role:
+
+| Role | Access level |
+|------|-------------|
+| Owner | Full access including billing |
+| Admin | Full access except billing |
+| Supervisor | Production oversight — view all jobs, sign off handoffs |
+| Operator | Create and update handoffs and job statuses for their stations |
+| Viewer | Read-only — cannot create or modify any records |
+
+Role checks are enforced on every API call, not just in the UI. An Operator cannot create admin actions even if they know the endpoint.
+
+## Team-level scoping
+
+Within an organization, teams further scope visibility. Operators assigned to a team primarily interact with that team's stations and queue. Supervisors, Admins, and Owners have org-wide visibility across all teams.
+
+## Removing access
+
+When a team member leaves your shop, remove them immediately:
+
+<Steps>
+  <Step title="Go to Teams > Members">
+    Find the member in the organization member list.
+  </Step>
+  <Step title="Remove the member">
+    Click the menu next to their name and select **Remove from Organization**.
+  </Step>
+  <Step title="Confirm">
+    Their session is invalidated and they can no longer access your organization's data.
+  </Step>
+</Steps>
